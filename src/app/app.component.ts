@@ -11,6 +11,9 @@ export class AppComponent {
 constructor(private userservice: UserService){
 
 }
+  ngOnInit() {
+    this.login();
+  }
 login(){
   this.userservice.userLogin().subscribe(
     data=>{console.log(data)}

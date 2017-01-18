@@ -6,7 +6,9 @@ import {AuthService} from "./auth.service";
 
 @Injectable()
 export class UserService {
-  private serverUrl = "https://rest.ehrscape.com/rest/v1/view/6f81d77a-26ef-4cf4-926f-40ccfafd8a1f/body_temperature";
+  private baseUrl = "https://rest.ehrscape.com/rest/v1/view/6f81d77a-26ef-4cf4-926f-40ccfafd8a1f/body_temperature";
+  private ehrId = "6f81d77a-26ef-4cf4-926f-40ccfafd8a1f";
+
   user: UserModel = new UserModel();
   authorization = "Basic " + btoa("guidemo" + ":" + "gui?!demo123");
   getHeaders: Headers = new Headers({'Authorization': this.authorization});
@@ -14,7 +16,7 @@ export class UserService {
   constructor(private http: Http, _authService: AuthService) { }
 
   userLogin() {
-    return this.http.get(this.serverUrl, {headers: this.getHeaders})
+    return this.http.get(this.baseUrl , {headers: this.getHeaders})
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
   }
