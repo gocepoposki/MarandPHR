@@ -1,4 +1,7 @@
 <p>
   patient-info works!
-  <button (click)="demographics()">test</button>
 </p>
+<label>{{this.userModel.firstName}}{{this.userModel.lastName}}</label><br>
+<label>Age:{{this.userModel.age | number:'.0-1'}}</label><br>
+<label>Gender:{{this.userModel.gender | lowercase}}</label><br>
+<label>DOB:{{this.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</label>

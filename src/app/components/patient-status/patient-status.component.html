@@ -1,3 +1,8 @@
 <p>
-  patient-status works!
+    patient-status works!
 </p>
+
+<div *ngFor="let item of this.weight, let i = index ">
+    <li>{{item.weight}}{{item.unit}}{{item.time | date: 'dd.MM.yyyy'}}</li>
+</div>
+<label>{{this.weight | json}}</label><br>

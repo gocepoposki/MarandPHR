@@ -1,8 +1,12 @@
 export class UserModel {
-  name: string;
-  username: string;
-  password: string;
-  patientid: string;
+  patientInfo: any;
+  firstName:string;
+  lastName:string
+  age:any;
+  gender:string;
+  dateOfBirth: number;
+  address:string;
+
   constructor() {
 
   }
