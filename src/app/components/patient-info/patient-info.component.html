@@ -1,7 +1,7 @@
 <p>
   patient-info works!
 </p>
-<label>{{this.userModel.firstName}}{{this.userModel.lastName}}</label><br>
-<label>Age:{{this.userModel.age | number:'.0-1'}}</label><br>
-<label>Gender:{{this.userModel.gender | lowercase}}</label><br>
-<label>DOB:{{this.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</label>
+<label>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</label><br>
+<label>Age:{{patientService.userModel.age | number:'.0-1'}}</label><br>
+<label>Gender:{{patientService.userModel.gender | lowercase}}</label><br>
+<label>DOB:{{patientService.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</label>

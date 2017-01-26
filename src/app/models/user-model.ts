@@ -1,7 +1,6 @@
 export class UserModel {
-  patientInfo: any;
-  firstName:string;
-  lastName:string
+  firstNames:string;
+  lastNames:string;
   age:any;
   gender:string;
   dateOfBirth: number;
