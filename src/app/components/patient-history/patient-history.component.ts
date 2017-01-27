@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PatientService} from "../../services/patient.service";
+import {UserModel} from "../../models/user-model";
+
 
 @Component({
   selector: 'app-patient-history',
@@ -6,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-history.component.css']
 })
 export class PatientHistoryComponent implements OnInit {
+  userModel: UserModel = new UserModel();
 
-  constructor() { }
+
+  constructor(private patientService: PatientService) {
+  }
 
   ngOnInit() {
   }

@@ -1,3 +1,29 @@
 <p>
   patient-history works!
 </p>
+<!--<div *ngFor="let item of patientService.template, let i = index ">-->
+  <!--<p *ngIf="item.templateId = 'Allergies'>-->
+    <!--{{item.templateId}}-->
+  <!--</p>-->
+<!--</div>-->
+
+<p>Allergies</p>
+<div *ngFor="let item of patientService.allergy, let i = index ">
+  <li>
+    {{item.agent}}
+  </li>
+</div>
+
+<p>Medications</p>
+<div *ngFor="let item of patientService.medication, let i = index ">
+  <li>
+    {{item.medicine}}
+  </li>
+</div>
+
+<p>Problems</p>
+<div *ngFor="let item of patientService.problem, let i = index ">
+  <li>
+    {{item.diagnosis}}
+  </li>
+</div>
