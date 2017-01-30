@@ -126,9 +126,9 @@ export class PatientService {
   }
 
   timeLine(url){
-    var body = JSON.stringify(
-      {"queryRequestData":{"aql":"SELECT c FROM EHR[ehr_id/value='6f81d77a-26ef-4cf4-926f-40ccfafd8a1f'] CONTAINS COMPOSITION c ORDER BY c/context/start_time DESC FETCH 20"}}
-    );
+    var body = JSON.stringify({
+      "queryRequestData":{"aql":`SELECT c FROM EHR[ehr_id/value='${this.ehrId}'] CONTAINS COMPOSITION c ORDER BY c/context/start_time DESC FETCH 20`}
+    });
     // return this.http.post(this.baseUrl + url, {headers: this.getHeaders})
     return this.http.post(this.baseUrl + url, body, {headers: this.getHeaders})
       .map((res: Response) => res.json())
