@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {PatientService} from "../../services/patient.service";
+import {UserModel} from "../../models/user-model";
 
 @Component({
     selector: 'app-patient-timeline',
@@ -6,8 +8,10 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./patient-timeline.component.css']
 })
 export class PatientTimelineComponent implements OnInit {
+  userModel: UserModel = new UserModel();
 
-    constructor() {
+
+  constructor(private patientService: PatientService) {
 
     }
 

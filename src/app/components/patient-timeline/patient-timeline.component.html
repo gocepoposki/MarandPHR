@@ -1,3 +1,9 @@
-<p>
+<h2>
   patient-timeline works!
-</p>
+</h2>
+<p>Laboratory Results</p>
+<div *ngFor="let item of patientService.labs, let i = index ">
+  <li>
+    {{item.name}} {{item.loinc}} {{item.normal_min}} {{item.normal_max}} {{item.value}} {{item.unit}} {{item.time | date: "dd-MMM-yyyy'at'HH:mm"}}
+  </li>
+</div>
