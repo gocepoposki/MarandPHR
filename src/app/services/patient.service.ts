@@ -12,7 +12,7 @@ export class PatientService {
   private baseUrl = "https://rest.ehrscape.com/rest/v1";
   private ehrId = "6f81d77a-26ef-4cf4-926f-40ccfafd8a1f";
   private authorization = "Basic " + btoa("guidemo" + ":" + "gui?!demo123");
-  private getHeaders: Headers = new Headers({'Authorization': this.authorization});
+  private getHeaders: Headers = new Headers({'Authorization': this.authorization,'Content-Type': 'application/json'});
 
   patientDemographics: any = [];
   bloodPressure: any = [];
@@ -26,6 +26,7 @@ export class PatientService {
   pulse: any = [];
   spO2: any = [];
   template: any = [];
+  presentation: any = [];
 
   constructor(private http: Http,) {
     this.getData();
@@ -110,6 +111,12 @@ export class PatientService {
         console.log(this.template, 'template');
       }
     );
+    this.timeLine(`/presentation`).subscribe(
+      data => {
+        this.presentation = data;
+        console.log(this.presentation, 'presentation');
+      }
+    );
   }
 
   fetch(url) {
@@ -118,4 +125,13 @@ export class PatientService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
   }
 
+  timeLine(url){
+    var body = JSON.stringify(
+      {"queryRequestData":{"aql":"SELECT c FROM EHR[ehr_id/value='6f81d77a-26ef-4cf4-926f-40ccfafd8a1f'] CONTAINS COMPOSITION c ORDER BY c/context/start_time DESC FETCH 20"}}
+    );
+    // return this.http.post(this.baseUrl + url, {headers: this.getHeaders})
+    return this.http.post(this.baseUrl + url, body, {headers: this.getHeaders})
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
+  }
 }

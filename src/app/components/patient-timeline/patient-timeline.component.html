@@ -1,9 +1,22 @@
 <h2>
   patient-timeline works!
 </h2>
+<p>Timeline</p>
+<div *ngFor="let item of patientService.presentation, let i = index ">
+  <li>
+    {{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}
+    <div>
+      <h4>
+      {{item.metadata.startTime | date: "MM-yyyy"}} {{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
+      </h4>
+    </div>
+  </li>
+</div>
+
 <p>Laboratory Results</p>
 <div *ngFor="let item of patientService.labs, let i = index ">
   <li>
-    {{item.name}} {{item.loinc}} {{item.normal_min}} {{item.normal_max}} {{item.value}} {{item.unit}} {{item.time | date: "dd-MMM-yyyy'at'HH:mm"}}
+    {{item.name}} {{item.loinc}} {{item.normal_min}} {{item.normal_max}} {{item.value}} {{item.unit}} {{item.time |
+    date: "dd-MMM-yyyy'at'HH:mm"}}
   </li>
 </div>
