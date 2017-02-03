@@ -7,7 +7,8 @@
     {{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}
     <div>
       <h4>
-      {{item.metadata.startTime | date: "MM-yyyy"}} {{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
+        {{item.metadata.startTime | date: "MM-yyyy"}} {{item.metadata.templateId}}{{' | ' +
+        item.metadata.composer.name}}
       </h4>
     </div>
   </li>
@@ -19,4 +20,24 @@
     {{item.name}} {{item.loinc}} {{item.normal_min}} {{item.normal_max}} {{item.value}} {{item.unit}} {{item.time |
     date: "dd-MMM-yyyy'at'HH:mm"}}
   </li>
+</div>
+
+
+
+<div class="col-md-6">
+  <canvas baseChart *ngIf="patientService.barChartLabels.length > 0"
+          [data]="patientService.barChartData"
+          [labels]="patientService.barChartLabels"
+          [options]="barChartOptions"
+          [chartType]="'bar'">
+  </canvas>
+</div>
+
+<div class="col-md-6">
+  <canvas baseChart *ngIf="patientService.bloodPressureData.length > 0"
+          [datasets]="patientService.bloodPressureData"
+          [labels]="patientService.bloodPressureTime"
+          [options]="barChartOptions"
+          [chartType]="'line'">
+  </canvas>
 </div>

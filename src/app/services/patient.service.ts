@@ -27,7 +27,13 @@ export class PatientService {
   spO2: any = [];
   template: any = [];
   presentation: any = [];
-
+  barChartLabels: any = [];
+  barChartData: any = [];
+  // bloodPressureDiastolic: any = [];
+  // bloodPressureSystolic: any = [];
+  bloodPressureTime: any = [];
+  bloodPressureData: any = [];
+  vreme: any = [];
   constructor(private http: Http,) {
     this.getData();
   }
@@ -49,72 +55,83 @@ export class PatientService {
       data => {
         this.bloodPressure = data;
         console.log(this.bloodPressure, 'blood_pressure');
+        // this.bloodPressureDiastolic = data.map(function(a) {return a.diastolic;});
+        // this.bloodPressureSystolic = data.map(function(a) {return a.systolic;});
+        this.bloodPressureTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
+        this.bloodPressureData = [
+          {data: data.map(function(a) {return a.diastolic;}), label: 'Diastolic'},
+          {data: data.map(function(a) {return a.systolic;}), label: 'Systolic'}
+        ];
+        console.log(this.bloodPressureTime + 'aaaaaaaaa')
+
       }
     );
     this.fetch(`/view/${this.ehrId}/weight`).subscribe(
       data => {
         this.weight = data;
-        console.log(this.weight, 'weight');
+        // console.log(this.weight, 'weight');
       }
     );
     this.fetch(`/view/${this.ehrId}/height`).subscribe(
       data => {
         this.height = data;
-        console.log(this.height, 'height');
+        // console.log(this.height, 'height');
       }
     );
     this.fetch(`/view/${this.ehrId}/allergy`).subscribe(
       data => {
         this.allergy = data;
-        console.log(this.allergy, 'allergy');
+        // console.log(this.allergy, 'allergy');
       }
     );
     this.fetch(`/view/${this.ehrId}/body_temperature`).subscribe(
       data => {
         this.body_temperature = data;
         console.log(this.body_temperature, 'body_temperature');
+        this.barChartData = data.map(function(a) {return a.temperature;});
+        this.barChartLabels = data.map(function(a) {return a.time;});
       }
     );
     this.fetch(`/view/${this.ehrId}/labs`).subscribe(
       data => {
         this.labs = data;
-        console.log(this.labs, 'labs');
+        // console.log(this.labs, 'labs');
       }
     );
     this.fetch(`/view/${this.ehrId}/medication`).subscribe(
       data => {
         this.medication = data;
-        console.log(this.medication, 'medication');
+        // console.log(this.medication, 'medication');
       }
     );
     this.fetch(`/view/${this.ehrId}/problem`).subscribe(
       data => {
         this.problem = data;
-        console.log(this.problem, 'problem');
+        // console.log(this.problem, 'problem');
       }
     );
     this.fetch(`/view/${this.ehrId}/pulse`).subscribe(
       data => {
         this.pulse = data;
-        console.log(this.pulse, 'pulse');
+        // console.log(this.pulse, 'pulse');
       }
     );
     this.fetch(`/view/${this.ehrId}/spO2`).subscribe(
       data => {
         this.spO2 = data;
-        console.log(this.spO2, 'spO2');
+        // console.log(this.spO2, 'spO2');
       }
     );
     this.fetch(`/template`).subscribe(
       data => {
         this.template = data.templates;
-        console.log(this.template, 'template');
+        // console.log(this.template, 'template');
       }
     );
     this.timeLine(`/presentation`).subscribe(
       data => {
         this.presentation = data;
-        console.log(this.presentation, 'presentation');
+        // console.log(this.presentation, 'presentation');
       }
     );
   }

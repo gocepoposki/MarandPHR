@@ -1,15 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { AuthService } from "./services/auth.service";
-import { PatientStatusComponent } from './components/patient-status/patient-status.component';
-import { PatientInfoComponent } from './components/patient-info/patient-info.component';
-import { PatientTimelineComponent } from './components/patient-timeline/patient-timeline.component';
-import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
-import { PatientService } from "./services/patient.service";
+import {AppComponent} from './app.component';
+import {AuthService} from "./services/auth.service";
+import {PatientStatusComponent} from './components/patient-status/patient-status.component';
+import {PatientInfoComponent} from './components/patient-info/patient-info.component';
+import {PatientTimelineComponent} from './components/patient-timeline/patient-timeline.component';
+import {PatientHistoryComponent} from './components/patient-history/patient-history.component';
+import {PatientService} from "./services/patient.service";
+import {ChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { PatientService } from "./services/patient.service";
     PatientStatusComponent,
     PatientInfoComponent,
     PatientTimelineComponent,
-    PatientHistoryComponent
+    PatientHistoryComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ChartsModule,
   ],
   providers: [
     AuthService,
@@ -30,4 +32,5 @@ import { PatientService } from "./services/patient.service";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
