@@ -1,3 +1,6 @@
 .chart {
   display: block;
 }
+.container {
+  width: 35%;
+}

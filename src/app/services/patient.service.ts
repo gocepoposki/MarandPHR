@@ -16,24 +16,29 @@ export class PatientService {
 
   patientDemographics: any = [];
   bloodPressure: any = [];
+  bloodPressureTime: any = [];
+  bloodPressureData: any = [];
   weight: any = [];
+  weightTime: any = [];
+  weightData: any = [];
   height: any = [];
+  heightTime: any = [];
+  heightData: any = [];
   allergy: any = [];
-  body_temperature: any = [];
+  bodyTemperature: any = [];
+  bodyTemperatureTime: any = [];
+  bodyTemperatureData: any = [];
   labs: any = [];
   medication: any = [];
   problem: any = [];
   pulse: any = [];
+  pulseTime: any = [];
+  pulseData: any = [];
   spO2: any = [];
   template: any = [];
   presentation: any = [];
-  barChartLabels: any = [];
-  barChartData: any = [];
-  // bloodPressureDiastolic: any = [];
-  // bloodPressureSystolic: any = [];
-  bloodPressureTime: any = [];
-  bloodPressureData: any = [];
-  vreme: any = [];
+
+
   constructor(private http: Http,) {
     this.getData();
   }
@@ -69,13 +74,18 @@ export class PatientService {
     this.fetch(`/view/${this.ehrId}/weight`).subscribe(
       data => {
         this.weight = data;
+        this.weightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
+        this.weightData =  data.map(function(a) {return a.weight});
         // console.log(this.weight, 'weight');
       }
     );
     this.fetch(`/view/${this.ehrId}/height`).subscribe(
       data => {
         this.height = data;
-        // console.log(this.height, 'height');
+        this.heightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
+        this.heightData =  data.map(function(a) {return a.height});
+
+        console.log(this.height, 'height');
       }
     );
     this.fetch(`/view/${this.ehrId}/allergy`).subscribe(
@@ -86,10 +96,10 @@ export class PatientService {
     );
     this.fetch(`/view/${this.ehrId}/body_temperature`).subscribe(
       data => {
-        this.body_temperature = data;
-        console.log(this.body_temperature, 'body_temperature');
-        this.barChartData = data.map(function(a) {return a.temperature;});
-        this.barChartLabels = data.map(function(a) {return a.time;});
+        this.bodyTemperature = data;
+        console.log(this.bodyTemperature, 'body_temperature');
+        this.bodyTemperatureData = data.map(function(a) {return a.temperature;});
+        this.bodyTemperatureTime = data.map(function(a) {return moment(a.time).format('DD-MMM');});
       }
     );
     this.fetch(`/view/${this.ehrId}/labs`).subscribe(
@@ -113,7 +123,9 @@ export class PatientService {
     this.fetch(`/view/${this.ehrId}/pulse`).subscribe(
       data => {
         this.pulse = data;
-        // console.log(this.pulse, 'pulse');
+        this.pulseTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
+        this.pulseData =  data.map(function(a) {return a.pulse});
+        console.log(this.pulse, 'pulse');
       }
     );
     this.fetch(`/view/${this.ehrId}/spO2`).subscribe(
