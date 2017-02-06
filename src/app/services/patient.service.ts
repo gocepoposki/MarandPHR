@@ -62,7 +62,7 @@ export class PatientService {
           {data: data.map(function(a) {return a.diastolic;}), label: 'Diastolic'},
           {data: data.map(function(a) {return a.systolic;}), label: 'Systolic'}
         ];
-        console.log(this.bloodPressureTime + 'aaaaaaaaa')
+        console.log(this.bloodPressureTime + 'perooo')
 
       }
     );
