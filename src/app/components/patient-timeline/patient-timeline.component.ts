@@ -77,10 +77,16 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   public bloodPressureOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true,
+    bezierCurve: false,
     backgroundColor: "rgba(255,153,0,1)",
     title: {
       display: true,
       text: 'Blod Pressure'
+    },
+    data: {
+      datasets: [{
+        lineTension: 0
+      }]
     },
     legend: {
       display: false,
@@ -137,6 +143,9 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   public pulseOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true,
+    datasets:[{
+      lineTension: 0,
+    }],
     backgroundColor: "rgba(255,153,0,1)",
     title: {
       display: true,

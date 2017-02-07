@@ -32,74 +32,85 @@
           [colors]="bloodPressureColors"
           [chartType]="'line'">
   </canvas>
-  <div *ngFor="let item of patientService.bloodPressure, let i = index ">
+  <div *ngFor="let item of patientService.bloodPressure, let i = index " class="center">
     <p *ngIf="i < 1">
       As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
-     {{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}
     </p>
+    <h3 *ngIf="i < 1" class="blodpresure">
+      {{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}
+    </h3>
   </div>
 </div>
 <!--BodyTemperature-->
 <div class="container">
   <canvas baseChart *ngIf="patientService.bodyTemperatureData.length > 0"
-          [data]="patientService.bodyTemperatureData"
+          [datasets]="patientService.bodyTemperatureData"
           [labels]="patientService.bodyTemperatureTime"
           [options]="bodyTemperatureOptions"
           [colors]="bodyTemperatureColors"
           [chartType]="'bar'">
   </canvas>
-  <div *ngFor="let item of patientService.bodyTemperature, let i = index ">
+  <div *ngFor="let item of patientService.bodyTemperature, let i = index " class="center">
     <p *ngIf="i < 1">
       As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
-      {{item.temperature}}{{item.unit}}
     </p>
+    <h3 *ngIf="i < 1" class="bodytemperature">
+      {{item.temperature}}{{item.unit}}
+    </h3>
   </div>
 </div>
 <!--Height-->
 <div class="container">
   <canvas baseChart *ngIf="patientService.heightData.length > 0"
-          [data]="patientService.heightData"
+          [datasets]="patientService.heightData"
           [labels]="patientService.heightTime"
           [options]="heightOptions"
           [colors]="heightColors"
           [chartType]="'bar'">
   </canvas>
-  <div *ngFor="let item of patientService.height, let i = index ">
+  <div *ngFor="let item of patientService.height, let i = index " class="center">
     <p *ngIf="i < 1">
       As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
-      {{item.height}}{{item.unit}}
     </p>
+    <h3 *ngIf="i < 1" class="height">
+      {{item.height}}{{item.unit}}
+    </h3>
   </div>
 </div>
 <!--Pulse-->
 <div class="container">
   <canvas baseChart *ngIf="patientService.pulseData.length > 0"
-          [data]="patientService.pulseData"
+          [datasets]="patientService.pulseData"
           [labels]="patientService.pulseTime"
           [options]="pulseOptions"
           [colors]="pulseColors"
           [chartType]="'line'">
   </canvas>
-  <div *ngFor="let item of patientService.pulse, let i = index ">
+  <div *ngFor="let item of patientService.pulse, let i = index " class="center">
     <p *ngIf="i < 1">
       As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
-      {{item.pulse}}{{item.unit}}
     </p>
+    <h3 *ngIf="i < 1" class="pulse">
+      {{item.pulse}}{{item.unit}}
+    </h3>
   </div>
 </div>
 <!--Weight-->
 <div class="container">
   <canvas baseChart *ngIf="patientService.weightData.length > 0"
-          [data]="patientService.weightData"
+          [datasets]="patientService.weightData"
           [labels]="patientService.weightTime"
           [options]="weightOptions"
           [colors]="weightColors"
           [chartType]="'line'">
   </canvas>
-  <div *ngFor="let item of patientService.weight, let i = index ">
+  <div *ngFor="let item of patientService.weight, let i = index " class="center">
     <p *ngIf="i < 1">
       As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
-      {{item.weight}}{{item.unit}}
     </p>
+    <h3 *ngIf="i < 1" class="weight">
+      {{item.weight}}{{item.unit}}
+    </h3>
   </div>
+
 </div>

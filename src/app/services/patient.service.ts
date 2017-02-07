@@ -62,10 +62,10 @@ export class PatientService {
         console.log(this.bloodPressure, 'blood_pressure');
         // this.bloodPressureDiastolic = data.map(function(a) {return a.diastolic;});
         // this.bloodPressureSystolic = data.map(function(a) {return a.systolic;});
-        this.bloodPressureTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
+        this.bloodPressureTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
         this.bloodPressureData = [
-          {data: data.map(function(a) {return a.diastolic;}), label: 'Diastolic'},
-          {data: data.map(function(a) {return a.systolic;}), label: 'Systolic'}
+          {data: data.map(function(a) {return a.diastolic;}).reverse(), label: 'Diastolic', lineTension: 0},
+          {data: data.map(function(a) {return a.systolic;}).reverse(), label: 'Systolic', lineTension: 0}
         ];
         console.log(this.bloodPressureTime + 'perooo')
 
@@ -74,16 +74,20 @@ export class PatientService {
     this.fetch(`/view/${this.ehrId}/weight`).subscribe(
       data => {
         this.weight = data;
-        this.weightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
-        this.weightData =  data.map(function(a) {return a.weight});
+        this.weightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
+        this.weightData = [
+          {data: data.map(function(a) {return a.weight;}).reverse(), label: 'Weight', lineTension: 0},
+        ];
         // console.log(this.weight, 'weight');
       }
     );
     this.fetch(`/view/${this.ehrId}/height`).subscribe(
       data => {
         this.height = data;
-        this.heightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
-        this.heightData =  data.map(function(a) {return a.height});
+        this.heightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
+        this.heightData = [
+          {data: data.map(function(a) {return a.height;}).reverse(), label: 'Height'},
+        ];
 
         console.log(this.height, 'height');
       }
@@ -98,8 +102,10 @@ export class PatientService {
       data => {
         this.bodyTemperature = data;
         console.log(this.bodyTemperature, 'body_temperature');
-        this.bodyTemperatureData = data.map(function(a) {return a.temperature;});
-        this.bodyTemperatureTime = data.map(function(a) {return moment(a.time).format('DD-MMM');});
+        this.bodyTemperatureData = [
+          {data: data.map(function(a) {return a.temperature;}).reverse(), label: 'Body Temperature'},
+        ];
+        this.bodyTemperatureTime = data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
       }
     );
     this.fetch(`/view/${this.ehrId}/labs`).subscribe(
@@ -123,8 +129,10 @@ export class PatientService {
     this.fetch(`/view/${this.ehrId}/pulse`).subscribe(
       data => {
         this.pulse = data;
-        this.pulseTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');});
-        this.pulseData =  data.map(function(a) {return a.pulse});
+        this.pulseTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
+        this.pulseData = [
+          {data: data.map(function(a) {return a.pulse;}).reverse(), label: 'Pulse', lineTension: 0},
+        ];
         console.log(this.pulse, 'pulse');
       }
     );

@@ -4,3 +4,21 @@
 .container {
   width: 35%;
 }
+.center{
+  text-align: center;
+}
+.blodpresure{
+  color: #DA4453;
+}
+.bodytemperature{
+  color: #F6BB42;
+}
+.height{
+  color: #37BC9B;
+}
+.pulse{
+  color: #8CC152;
+}
+.weight{
+  color: #3BAFDA;
+}
