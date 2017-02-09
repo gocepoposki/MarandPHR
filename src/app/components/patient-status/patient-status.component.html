@@ -1,28 +1,66 @@
-<h2>
-  patient-status works!
-</h2>
-<label>Age:{{patientService.userModel.age | number:'.0-1'}}</label><br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-md-8">
 
-<div *ngFor="let item of patientService.weight, let i = index ">
-  <p *ngIf="i < 1">
-    Weight: {{item.weight}}{{item.unit}}
-  </p>
-</div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="center">
+            <p>Age</p>
+            <span>{{patientService.userModel.age | number:'.0-1'}}</span>
+          </div>
 
-<div *ngFor="let item of patientService.height, let i = index ">
-  <p *ngIf="i < 1">
-    Height: {{item.height}}{{item.unit}}
-  </p>
-</div>
+        </div>
+        <div class="col-md-4">
+          <p>Weight</p>
+          <div *ngFor="let item of patientService.weight, let i = index ">
+            <p *ngIf="i < 1">
+              {{item.weight}}{{item.unit}}
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>BMI</p>
+        </div>
+      </div>
 
-<div *ngFor="let item of patientService.bloodPressure, let i = index ">
-  <p *ngIf="i < 1">
-    Blood Pressure: {{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}
-  </p>
-</div>
-<div *ngFor="let item of patientService.spO2, let i = index ">
-  <p *ngIf="i < 1">
-    Oxygen Saturation: {{item.spO2 | number:'.2'}}%
-  </p>
-</div>
+      <div class="row">
+        <div class="col-md-4">
+          <div *ngFor="let item of patientService.bloodPressure, let i = index ">
+            <p *ngIf="i < 1">
+              Blood Pressure: {{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          (Systolic)
+        </div>
+        <div class="col-md-4">
+          (Diastolic)
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div *ngFor="let item of patientService.spO2, let i = index ">
+            <p *ngIf="i < 1">
+              Oxygen Saturation: {{item.spO2 | number:'.2'}}%
+            </p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="progress-bar progress-bar-success bar-spo2" style="width: 97.5%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div *ngFor="let item of patientService.height, let i = index ">
+        <p *ngIf="i < 1">
+          Height: {{item.height}}{{item.unit}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+
 

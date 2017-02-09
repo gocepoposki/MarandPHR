@@ -1,8 +1,18 @@
-<h1>
-  {{title}}
+<div class="container">
+  <div class="col-md-9 pull-left">
+    <div class="col-md-12 pull-left">
+      <app-patient-info></app-patient-info>
+    </div>
 
-</h1>
-<app-patient-info></app-patient-info>
-<app-patient-status></app-patient-status>
-<app-patient-timeline></app-patient-timeline>
-<app-patient-history></app-patient-history>
+    <div class="col-md-12 pull-left">
+      <app-patient-status></app-patient-status>
+    </div>
+
+    <div class="col-md-12 pull-left">
+      <app-patient-timeline></app-patient-timeline>
+    </div>
+  </div>
+  <div class="col-md-3 pull-left">
+    <app-patient-history></app-patient-history>
+  </div>
+</div>

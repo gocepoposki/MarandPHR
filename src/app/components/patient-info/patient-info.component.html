@@ -1,7 +1,22 @@
-<h2>
-  patient-info works!
-</h2>
-<label>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</label><br>
-<label>Age:{{patientService.userModel.age | number:'.0-1'}}</label><br>
-<label>Gender:{{patientService.userModel.gender | lowercase}}</label><br>
-<label>DOB:{{patientService.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</label>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-md-3">
+      aaaa
+    </div>
+    <div class="col-md-6">
+      <h4>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</h4><br>
+      <p>Age: <span>{{patientService.userModel.age | number:'.0-1'}}</span> </p>
+      <p>Gender: <span>{{patientService.userModel.gender | lowercase}}</span></p>
+      <p>DOB: <span>{{patientService.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</span></p>
+    </div>
+    <div class="mask">
+
+    </div>
+    <div class="col-md-3">
+      aaaaa
+    </div>
+  </div>
+</div>
+
+
+

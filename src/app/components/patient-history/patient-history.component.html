@@ -1,29 +1,40 @@
-<h2>
-  patient-history works!
-</h2>
-<!--<div *ngFor="let item of patientService.template, let i = index ">-->
-  <!--<p *ngIf="item.templateId = 'Allergies'>-->
-    <!--{{item.templateId}}-->
-  <!--</p>-->
-<!--</div>-->
-
-<p>Allergies</p>
-<div *ngFor="let item of patientService.allergy, let i = index ">
-  <li>
-    {{item.agent}}
-  </li>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Allergies</h3>
+  </div>
+  <div class="panel-body">
+    <div *ngFor="let item of patientService.allergy, let i = index ">
+      <li>
+        {{item.agent}}
+      </li>
+    </div>
+  </div>
 </div>
 
-<p>Medications</p>
-<div *ngFor="let item of patientService.medication, let i = index ">
-  <li>
-    {{item.medicine}}
-  </li>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Medications</h3>
+  </div>
+  <div class="panel-body">
+    <div *ngFor="let item of patientService.medication, let i = index ">
+      <li>
+        {{item.medicine}}
+      </li>
+    </div>
+  </div>
 </div>
 
-<p>Problems</p>
-<div *ngFor="let item of patientService.problem, let i = index ">
-  <li>
-    {{item.diagnosis}}
-  </li>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Problems</h3>
+  </div>
+  <div class="panel-body">
+    <div *ngFor="let item of patientService.problem, let i = index ">
+      <li>
+        {{item.diagnosis}}
+      </li>
+    </div>
+  </div>
 </div>
+
+
