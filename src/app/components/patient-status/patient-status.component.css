@@ -1,0 +1,25 @@
+body {
+  font-size: 18px;
+  line-height: 1.72222;
+}
+
+.progress{
+  height: 1em;
+}
+
+p{
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.72222;
+  margin: 0 0 15px;
+  color: #999;
+
+}
+span{
+  font-weight: bold;
+  font-size: 16px;
+  color: #434a54;
+}
+.patient-info{
+  font-size: 24px;
+}

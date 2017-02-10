@@ -11,6 +11,7 @@ import {UserModel} from "../../models/user-model";
 export class PatientTimelineComponent implements OnInit, AfterViewInit {
   userModel: UserModel = new UserModel();
 
+  hideContent: boolean = true;
 
   constructor(private patientService: PatientService) {
 
@@ -23,12 +24,12 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
   }
 
   // Colors
   // BlodPressure
-  public bloodPressureColors:Array<any> = [
+  public bloodPressureColors: Array<any> = [
     {
       backgroundColor: "rgba(221, 121, 131, 1)",
       borderColor: 'rgba(218, 68, 83,1)',
@@ -40,7 +41,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     }
   ];
   // BodyTemperature
-  public bodyTemperatureColors:Array<any> = [
+  public bodyTemperatureColors: Array<any> = [
     {
       backgroundColor: "rgba(255, 206, 84, 1)",
       // borderColor: 'rgba(148,159,177,1)',
@@ -51,20 +52,20 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     },
   ];
   // Height
-  public heightColors:Array<any> = [
+  public heightColors: Array<any> = [
     {
       backgroundColor: "rgba(72, 207, 173, 1)"
     },
   ];
   // Pulse
-  public pulseColors:Array<any> = [
+  public pulseColors: Array<any> = [
     {
       backgroundColor: "rgba(190, 222, 156, 1)",
       borderColor: 'rgba(160, 212, 104,1)',
     }
   ];
   // Weight
-  public weightColors:Array<any> = [
+  public weightColors: Array<any> = [
     {
       backgroundColor: "rgba(139, 210, 234, 1)",
       borderColor: 'rgba(79, 193, 233,1)',
@@ -74,7 +75,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
 
   // Options
   // BlodPressure
-  public bloodPressureOptions:any = {
+  public bloodPressureOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
     bezierCurve: false,
@@ -100,7 +101,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     }
   };
   // BodyTemperature
-  public bodyTemperatureOptions:any = {
+  public bodyTemperatureOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
     backgroundColor: "rgba(255,153,0,1)",
@@ -120,7 +121,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     }
   };
   // Height
-  public heightOptions:any = {
+  public heightOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
     backgroundColor: "rgba(255,153,0,1)",
@@ -140,10 +141,10 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     }
   };
   // Pulse
-  public pulseOptions:any = {
+  public pulseOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
-    datasets:[{
+    datasets: [{
       lineTension: 0,
     }],
     backgroundColor: "rgba(255,153,0,1)",
@@ -163,7 +164,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     }
   };
 // Weight
-  public weightOptions:any = {
+  public weightOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
     backgroundColor: "rgba(255,153,0,1)",
@@ -182,12 +183,6 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
       }]
     }
   };
-
-
-
-
-
-
 
 
 }

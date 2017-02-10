@@ -1,13 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="col-md-3"  align="center">
-      <img src="https://dev.ehrscape.com/demo/img/female.png" alt="nemat slika" class="img-circle" style="border: 3px solid black">
+      <img src="https://dev.ehrscape.com/demo/img/female.png" alt="nemat slika" class="img-circle" style="border: 3px solid #ececec">
     </div>
     <div class="col-md-6">
-      <h4>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</h4><br>
-      <p>Age: <span>{{patientService.userModel.age | number:'.0-1'}}</span> </p>
-      <p>Gender: <span>{{patientService.userModel.gender | lowercase}}</span></p>
-      <p>DOB: <span>{{patientService.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</span></p>
+      <h4>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</h4>
+      <p >Age: <span>{{patientService.userModel.age | number:'.0-1'}}</span> </p>
+      <p >Gender: <span>{{patientService.userModel.gender | lowercase}}</span></p>
+      <p >DOB: <span>{{patientService.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</span></p>
     </div>
     <div class="mask">
 

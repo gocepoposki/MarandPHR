@@ -5,57 +5,75 @@
       <div class="row" align="center">
         <div class="col-md-4">
             <p>Age</p>
-            <span>{{patientService.userModel.age | number:'.0-1'}}</span>
+            <span class="patient-info">{{patientService.userModel.age | number:'.0-0'}}</span>
         </div>
         <div class="col-md-4">
           <p>Weight</p>
           <div *ngFor="let item of patientService.weight, let i = index ">
             <p *ngIf="i < 1">
-              {{item.weight}}{{item.unit}}
+              <span class="patient-info">{{item.weight}}{{item.unit}}</span>
             </p>
           </div>
         </div>
         <div class="col-md-4">
           <p>BMI</p>
+          <span class="patient-info">17.92 kg/m2</span>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" align="center">
         <div class="col-md-4">
           <div *ngFor="let item of patientService.bloodPressure, let i = index ">
             <p *ngIf="i < 1">
-              Blood Pressure: {{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}
+              Blood Pressure: <span>{{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}</span>
             </p>
           </div>
         </div>
         <div class="col-md-4">
-          (Systolic)
+          <div *ngFor="let item of patientService.bloodPressure, let i = index ">
+            <div class="progress" *ngIf="i < 1">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" [style.width.%]="item.diastolic">
+              </div>
+            </div>
+          </div>
+          <p>(Systolic)</p>
         </div>
-        <div class="col-md-4">
-          (Diastolic)
+        <div class="col-md-4" style="content: '';">
+          <div *ngFor="let item of patientService.bloodPressure, let i = index">
+            <div class="progress" *ngIf="i < 1">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" [style.width.%]="item.systolic">
+              </div>
+            </div>
+          </div>
+          <p>(Diastolic)</p>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" align="center">
         <div class="col-md-4">
           <div *ngFor="let item of patientService.spO2, let i = index ">
             <p *ngIf="i < 1">
-              Oxygen Saturation: {{item.spO2 | number:'.2'}}%
+              Oxygen Saturation: <span>{{item.spO2 | number:'.2'}}%</span>
             </p>
           </div>
         </div>
-        <div class="col-md-8">
-          <div class="progress-bar progress-bar-success bar-spo2" style="width: 97.5%;"></div>
+        <div class="col-md-8" >
+          <div *ngFor="let item of patientService.spO2, let i = index ">
+            <div class="progress" *ngIf="i < 1">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" [style.width.%]="item.spO2">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="col-md-4" align="center">
       <div *ngFor="let item of patientService.height, let i = index ">
-        <h4 *ngIf="i < 1">
+        <p *ngIf="i < 1">
           <img src="https://dev.ehrscape.com/demo/img/body-blank-female.png" alt="HTML5 Icon">
-          Height {{item.height}}{{item.unit}}
-        </h4>
+          Height <span>{{item.height}}{{item.unit}}</span>
+        </p>
       </div>
     </div>
   </div>
