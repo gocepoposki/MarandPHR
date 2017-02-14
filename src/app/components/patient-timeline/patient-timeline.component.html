@@ -1,38 +1,77 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
     <span style="float:right" class="glyphicon glyphicon-remove"></span>
-    <h3 class="panel-title">Timeline</h3>
+    <h4 class="panel-title">Timeline</h4>
   </div>
-  <div class="panel-body">
+  <div class="panel-body; scroll">
     <div *ngFor="let item of patientService.presentation, let i = index ">
-      <li>
-        {{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}
-        <div>
-          <h4>
-            {{item.metadata.startTime | date: "MM-yyyy"}} {{item.metadata.templateId}}{{' | ' +
-            item.metadata.composer.name}}
-          </h4>
-        </div>
-      </li>
+      <div class="col-md-3" style="text-align: right">
+        {{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}<br>
+        {{item.metadata.startTime | date: "dd-MMM"}}
+      </div>
+      <div class="col-md-1">
+        <span>
+          <span class="fa-stack fa-lg">
+          <i class="fa fa-circle-o fa-stack-2x"></i>
+          <i class="fa fa-stethoscope fa-stack-1x"></i>
+        </span>
+        <i class="glyphicon glyphicon-triangle-left" aria-hidden="fals "></i>
+        </span>
+
+
+      </div>
+      <div class="col-md-8">
+        <ul class="list-group">
+          <li class="list-group-item">
+            {{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
+
+<!--TABELA-->
 <div class="panel panel-info">
   <div class="panel-heading">
     <span style="float:right" class="glyphicon glyphicon-remove"></span>
     <h3 class="panel-title">Laboratory Results</h3>
   </div>
   <div class="panel-body">
-    <div *ngFor="let item of patientService.labs, let i = index ">
-      <li>
-        {{item.name}} {{item.loinc}} {{item.normal_min}} {{item.normal_max}} {{item.value}} {{item.unit}} {{item.time |
-        date: "dd-MMM-yyyy' at 'HH:mm"}}
-      </li>
-    </div>
+    <table class="table table-striped">
+      <tr style="background-color: transparent">
+        <th>Name</th>
+        <th>LOINC</th>
+        <th>Normal Range</th>
+        <th>Value</th>
+        <th>Unit</th>
+        <th>Time</th>
+      </tr>
+      <tr></tr>
+      <tr *ngFor="let item of patientService.labs, let i = index">
+        <td>
+          {{item.name}}
+        </td>
+        <td>
+          {{item.loinc}}
+        </td>
+        <td>
+          {{item.normal_min}} {{item.normal_max}}
+        </td>
+        <td>
+          {{item.value}}
+        </td>
+        <td>
+          {{item.unit}}
+        </td>
+        <td>
+          {{item.time | date: "dd-MMM-yyyy' at 'HH:mm"}}
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
-
 
 <!--BlodPresure-->
 <div class="grafikon" class="col-md-6">

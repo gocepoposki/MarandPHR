@@ -7,7 +7,7 @@
       <h4>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</h4>
       <p >Age: <span>{{patientService.userModel.age | number:'.0-1'}}</span> </p>
       <p >Gender: <span>{{patientService.userModel.gender | lowercase}}</span></p>
-      <p >DOB: <span>{{patientService.userModel.dateOfBirth | date:'dd.MM.yyyy'}}</span></p>
+      <p >DOB: <span>{{patientService.userModel.dateOfBirth | date:'MMM.dd,yyyy'}}</span></p>
     </div>
     <div class="mask">
 

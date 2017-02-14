@@ -9,7 +9,7 @@ import {UserModel} from "../models/user-model";
 export class PatientService {
   userModel: UserModel = new UserModel();
 
-  private baseUrl = "https://rest.ehrscape.com/rest/v1";
+  private baseUrl = "https://rest.ehrscape.com";
   private ehrId = "6f81d77a-26ef-4cf4-926f-40ccfafd8a1f";
   private authorization = "Basic " + btoa("guidemo" + ":" + "gui?!demo123");
   private getHeaders: Headers = new Headers({'Authorization': this.authorization,'Content-Type': 'application/json'});
@@ -37,6 +37,7 @@ export class PatientService {
   spO2: any = [];
   template: any = [];
   presentation: any = [];
+  bmi: any = [];
 
 
   constructor(private http: Http,) {
@@ -44,7 +45,7 @@ export class PatientService {
   }
 
   getData() {
-    this.fetch(`/demographics/ehr/${this.ehrId}/party`).subscribe(
+    this.fetch(`/rest/v1/demographics/ehr/${this.ehrId}/party`).subscribe(
       data => {
         this.patientDemographics = data.party;
         console.log(data.party, 'demographics');
@@ -56,7 +57,7 @@ export class PatientService {
         // this.userModel.address = this.patientDemographics.address.address;
       }
     );
-    this.fetch(`/view/${this.ehrId}/blood_pressure`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/blood_pressure`).subscribe(
       data => {
         this.bloodPressure = data;
         console.log(this.bloodPressure, 'blood_pressure');
@@ -67,11 +68,11 @@ export class PatientService {
           {data: data.map(function(a) {return a.diastolic;}).reverse(), label: 'Diastolic', lineTension: 0},
           {data: data.map(function(a) {return a.systolic;}).reverse(), label: 'Systolic', lineTension: 0}
         ];
-        console.log(this.bloodPressureTime + 'perooo')
+        // console.log(this.bloodPressureTime + 'perooo')
 
       }
     );
-    this.fetch(`/view/${this.ehrId}/weight`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/weight`).subscribe(
       data => {
         this.weight = data;
         this.weightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
@@ -81,7 +82,7 @@ export class PatientService {
         // console.log(this.weight, 'weight');
       }
     );
-    this.fetch(`/view/${this.ehrId}/height`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/height`).subscribe(
       data => {
         this.height = data;
         this.heightTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
@@ -89,16 +90,16 @@ export class PatientService {
           {data: data.map(function(a) {return a.height;}).reverse(), label: 'Height'},
         ];
 
-        console.log(this.height, 'height');
+        // console.log(this.height, 'height');
       }
     );
-    this.fetch(`/view/${this.ehrId}/allergy`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/allergy`).subscribe(
       data => {
         this.allergy = data;
         // console.log(this.allergy, 'allergy');
       }
     );
-    this.fetch(`/view/${this.ehrId}/body_temperature`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/body_temperature`).subscribe(
       data => {
         this.bodyTemperature = data;
         console.log(this.bodyTemperature, 'body_temperature');
@@ -108,59 +109,66 @@ export class PatientService {
         this.bodyTemperatureTime = data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
       }
     );
-    this.fetch(`/view/${this.ehrId}/labs`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/labs`).subscribe(
       data => {
         this.labs = data;
         // console.log(this.labs, 'labs');
       }
     );
-    this.fetch(`/view/${this.ehrId}/medication`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/medication`).subscribe(
       data => {
         this.medication = data;
         // console.log(this.medication, 'medication');
       }
     );
-    this.fetch(`/view/${this.ehrId}/problem`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/problem`).subscribe(
       data => {
         this.problem = data;
         // console.log(this.problem, 'problem');
       }
     );
-    this.fetch(`/view/${this.ehrId}/pulse`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/pulse`).subscribe(
       data => {
         this.pulse = data;
         this.pulseTime =  data.map(function(a) {return moment(a.time).format('DD-MMM');}).reverse();
         this.pulseData = [
           {data: data.map(function(a) {return a.pulse;}).reverse(), label: 'Pulse', lineTension: 0},
         ];
-        console.log(this.pulse, 'pulse');
+        // console.log(this.pulse, 'pulse');
       }
     );
-    this.fetch(`/view/${this.ehrId}/spO2`).subscribe(
+    this.fetch(`/rest/v1/view/${this.ehrId}/spO2`).subscribe(
       data => {
         this.spO2 = data;
         // console.log(this.spO2, 'spO2');
       }
     );
-    this.fetch(`/template`).subscribe(
+    this.fetch(`/rest/v1/template`).subscribe(
       data => {
         this.template = data.templates;
         // console.log(this.template, 'template');
       }
     );
-    this.timeLine(`/presentation`).subscribe(
+    this.timeLine(`/rest/v1/presentation`).subscribe(
       data => {
         this.presentation = data;
-        // console.log(this.presentation, 'presentation');
+        console.log(this.presentation, 'presentation');
       }
     );
+    this.timeLine(`/thinkcds/rest/v1/guide/BMI.Calculation.v.1/execute/6f81d77a-26ef-4cf4-926f-40ccfafd8a1f/query?format=plain`).subscribe(
+      data => {
+        this.bmi = data[0].results;
+         // console.log(this.bmi, 'bmi');
+      }
+    );
+
   }
 
   fetch(url) {
     return this.http.get(this.baseUrl + url, {headers: this.getHeaders})
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
-  }
+  }z
 
   timeLine(url){
     var body = JSON.stringify({

@@ -21,10 +21,11 @@
 .weight{
   color: #3BAFDA;
 }
-
-
-/*.panel-primary {*/
-  /*background-color: #3bafda;*/
-  /*color: white;*/
-  /*border-color: #3bafda;*/
-/*}*/
+.scroll {
+  height: 370px;
+  overflow: auto;
+  padding: 15px
+}
+.list-group-item{
+  background-color: #dcdfe3;
+}

@@ -4,8 +4,8 @@
 
       <div class="row" align="center">
         <div class="col-md-4">
-            <p>Age</p>
-            <span class="patient-info">{{patientService.userModel.age | number:'.0-0'}}</span>
+          <p>Age</p>
+          <span class="patient-info">{{patientService.userModel.age | number:'.0-0'}}</span>
         </div>
         <div class="col-md-4">
           <p>Weight</p>
@@ -17,7 +17,16 @@
         </div>
         <div class="col-md-4">
           <p>BMI</p>
-          <span class="patient-info">17.92 kg/m2</span>
+          <div *ngFor="let item of patientService.bmi, let i = index ">
+            <span class="patient-info" *ngIf="i == 2" >
+              {{item.value.magnitude | number:'.0-2'}}
+              {{item.value.units}}
+            </span>
+            <span class="bmi-details">{{item.value.value}}</span>
+            <h6>
+
+            </h6>
+          </div>
         </div>
       </div>
 
@@ -32,7 +41,8 @@
         <div class="col-md-4">
           <div *ngFor="let item of patientService.bloodPressure, let i = index ">
             <div class="progress" *ngIf="i < 1">
-              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" [style.width.%]="item.diastolic">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;"
+                   [style.width.%]="item.diastolic">
               </div>
             </div>
           </div>
@@ -41,7 +51,8 @@
         <div class="col-md-4" style="content: '';">
           <div *ngFor="let item of patientService.bloodPressure, let i = index">
             <div class="progress" *ngIf="i < 1">
-              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" [style.width.%]="item.systolic">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;"
+                   [style.width.%]="item.systolic">
               </div>
             </div>
           </div>
@@ -57,10 +68,11 @@
             </p>
           </div>
         </div>
-        <div class="col-md-8" >
+        <div class="col-md-8">
           <div *ngFor="let item of patientService.spO2, let i = index ">
             <div class="progress" *ngIf="i < 1">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" [style.width.%]="item.spO2">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                   style="min-width: 2em;" [style.width.%]="item.spO2">
               </div>
             </div>
           </div>
@@ -78,5 +90,4 @@
     </div>
   </div>
 
-
-
+</div>
