@@ -5,31 +5,36 @@
   </div>
   <div class="panel-body; scroll">
     <div *ngFor="let item of patientService.presentation, let i = index ">
+
       <div class="col-md-3" style="text-align: right">
         {{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}<br>
         {{item.metadata.startTime | date: "dd-MMM"}}
       </div>
+
       <div class="col-md-1">
-        <span>
-          <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-o fa-stack-2x"></i>
-          <i class="fa fa-stethoscope fa-stack-1x"></i>
-        </span>
-        <i class="glyphicon glyphicon-triangle-left" aria-hidden="fals "></i>
-        </span>
-
-
+        <div class="timeline-icon fa-stethoscope"></div>
       </div>
+
       <div class="col-md-8">
         <ul class="list-group">
           <li class="list-group-item">
             {{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
+            <p>{{item.composition.children[0].label}}</p>
+            <div *ngFor="let item of item.composition.children[0].children">
+              <ul>
+                <li>{{item.label}}: {{item.displayValue}}</li>
+              </ul>
+            </div>
           </li>
+          <ul class="timeline"></ul>
         </ul>
       </div>
+
     </div>
   </div>
 </div>
+
+<!--TEST-->
 
 
 <!--TABELA-->
