@@ -17,14 +17,43 @@
 
       <div class="col-md-8">
         <ul class="list-group">
-          <li class="list-group-item">
+          <li class="list-group-item" (click)="otvorise(i)">
             {{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
-            <p>{{item.composition.children[0].label}}</p>
-            <div *ngFor="let item of item.composition.children[0].children">
-              <ul>
-                <li>{{item.label}}: {{item.displayValue}}</li>
-              </ul>
+            <div *ngIf="i == open && close">
+            <!--1-->
+              <div *ngFor="let item of item.composition.children, let i = index " >
+                <ul>
+                  <li>{{item.label}}</li>
+                  <!--2-->
+                  <div *ngFor="let item of item.children">
+                    <ul>
+                      <li>{{item.label}}: {{item.displayValue}}</li>
+                      <!--3-->
+                      <div *ngFor="let item of item.children">
+                        <ul>
+                          <li>{{item.label}}: {{item.displayValue}}</li>
+                          <!--4-->
+                          <div *ngFor="let item of item.children">
+                            <ul>
+                              <li>{{item.label}}: {{item.displayValue}}</li>
+                              <!--5-->
+                              <div *ngFor="let item of item.children">
+                                <ul>
+                                  <li>{{item.label}}: {{item.displayValue}}</li>
+
+                                </ul>
+                              </div>
+                            </ul>
+                          </div>
+                        </ul>
+                      </div>
+                    </ul>
+                  </div>
+                </ul>
+              </div>
+
             </div>
+
           </li>
           <ul class="timeline"></ul>
         </ul>

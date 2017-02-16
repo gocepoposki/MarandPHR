@@ -17,6 +17,8 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
 
   }
 
+  open: number;
+  close: boolean;
 
   // bloodPressureTime: any = [];
 
@@ -185,4 +187,9 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   };
 
 
+  otvorise(event){
+    console.log(event)
+    this.open = event
+    this.close =! this.close;
+  }
 }
