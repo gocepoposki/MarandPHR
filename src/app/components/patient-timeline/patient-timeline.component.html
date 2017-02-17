@@ -16,12 +16,12 @@
       </div>
 
       <div class="col-md-8">
-        <ul class="list-group">
-          <li class="list-group-item" (click)="otvorise(i)">
-            {{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
-            <div *ngIf="i == open && close">
-            <!--1-->
-              <div *ngFor="let item of item.composition.children, let i = index " >
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+           <details>
+             <summary>{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}</summary>
+             <!--1-->
+              <div *ngFor="let item of item.composition.children, let i = index ">
                 <ul>
                   <li>{{item.label}}</li>
                   <!--2-->
@@ -52,11 +52,11 @@
                 </ul>
               </div>
 
-            </div>
+           </details>
 
-          </li>
+          </a>
           <ul class="timeline"></ul>
-        </ul>
+        </div>
       </div>
 
     </div>
