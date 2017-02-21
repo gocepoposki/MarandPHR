@@ -13,57 +13,88 @@
 
       <div class="col-md-1">
         <div class="timeline-icon fa-stethoscope"></div>
+        <!--<div class="timeline-icon fa-plus-square"></div>-->
+        <!--<div class="timeline-icon fa-medkit"></div>-->
       </div>
 
       <div class="col-md-8">
         <div class="list-group">
-          <a href="#" class="list-group-item">
-           <details>
-             <summary>{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}</summary>
-             <!--1-->
-              <div *ngFor="let item of item.composition.children, let i = index ">
-                <ul>
-                  <li>{{item.label}}</li>
-                  <!--2-->
-                  <div *ngFor="let item of item.children">
-                    <ul>
-                      <li>{{item.label}}: {{item.displayValue}}</li>
-                      <!--3-->
-                      <div *ngFor="let item of item.children">
-                        <ul>
-                          <li>{{item.label}}: {{item.displayValue}}</li>
-                          <!--4-->
-                          <div *ngFor="let item of item.children">
-                            <ul>
-                              <li>{{item.label}}: {{item.displayValue}}</li>
-                              <!--5-->
-                              <div *ngFor="let item of item.children">
-                                <ul>
-                                  <li>{{item.label}}: {{item.displayValue}}</li>
+          <div class="list-group">
+            <details>
+              <summary>{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}</summary>
+              <!--1-->
+              <!--<app-patient-composition-item [items]="item.composition.children"></app-patient-composition-item>-->
+              <!--<div *ngFor="let item of item.composition.children, let i = index " class="goce">-->
+                <!--<ul>-->
+                  <!--<li>{{item.label}}</li>&lt;!&ndash;2&ndash;&gt;-->
+                  <app-patient-composition-item [items]="item.composition.children"></app-patient-composition-item>
+                <!--</ul>-->
+              <!--</div>-->
 
-                                </ul>
-                              </div>
-                            </ul>
-                          </div>
-                        </ul>
-                      </div>
-                    </ul>
-                  </div>
-                </ul>
-              </div>
+            </details>
 
-           </details>
-
-          </a>
+          </div>
           <ul class="timeline"></ul>
         </div>
       </div>
 
+
+      <!--TEST-->
+      <!--<div class="col-md-8">-->
+      <!--<button (click)="test('Demo1')" class="w3-btn-block w3-left-align">-->
+      <!--Open Section 1</button>-->
+      <!--<div id="Demo1" class="hide">-->
+      <!--<p>Some text..</p>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="col-md-8">-->
+        <!--<div class="list-group">-->
+          <!--<input type="checkbox" checked>-->
+            <!--{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}-->
+
+          <!--&lt;!&ndash;1&ndash;&gt;-->
+            <!--<div id="i" class="hide">-->
+              <!--<div *ngFor="let item of item.composition.children, let i = index ">-->
+                <!--<ul>-->
+                  <!--<li>{{item.label}}</li>-->
+                  <!--&lt;!&ndash;2&ndash;&gt;-->
+                  <!--<div *ngFor="let item of item.children">-->
+                    <!--<ul>-->
+                      <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
+                      <!--&lt;!&ndash;3&ndash;&gt;-->
+                      <!--<div *ngFor="let item of item.children">-->
+                        <!--<ul>-->
+                          <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
+                          <!--&lt;!&ndash;4&ndash;&gt;-->
+                          <!--<div *ngFor="let item of item.children">-->
+                            <!--<ul>-->
+                              <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
+                              <!--&lt;!&ndash;5&ndash;&gt;-->
+                              <!--<div *ngFor="let item of item.children">-->
+                                <!--<ul>-->
+                                  <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
+
+                                <!--</ul>-->
+                              <!--</div>-->
+                            <!--</ul>-->
+                          <!--</div>-->
+                        <!--</ul>-->
+                      <!--</div>-->
+                    <!--</ul>-->
+                  <!--</div>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+
+          <!--<ul class="timeline"></ul>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
     </div>
   </div>
 </div>
-
-<!--TEST-->
 
 
 <!--TABELA-->

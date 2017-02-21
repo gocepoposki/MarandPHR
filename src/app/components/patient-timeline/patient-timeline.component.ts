@@ -187,9 +187,5 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   };
 
 
-  otvorise(event, i){
-    console.log(event);
-    console.log(i);
-    this.close =! this.close
-  }
+
 }

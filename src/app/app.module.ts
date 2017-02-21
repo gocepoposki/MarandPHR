@@ -11,6 +11,8 @@ import {PatientTimelineComponent} from './components/patient-timeline/patient-ti
 import {PatientHistoryComponent} from './components/patient-history/patient-history.component';
 import {PatientService} from "./services/patient.service";
 import {ChartsModule} from "ng2-charts";
+import { PatientCompositionItemComponent } from './components/patient-composition-item/patient-composition-item.component';
+import { PatientPresentationItemComponent } from './components/patient-presentation-item/patient-presentation-item.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import {ChartsModule} from "ng2-charts";
     PatientInfoComponent,
     PatientTimelineComponent,
     PatientHistoryComponent,
+    PatientCompositionItemComponent,
+    PatientPresentationItemComponent,
   ],
   imports: [
     BrowserModule,
