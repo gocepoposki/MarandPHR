@@ -9,3 +9,11 @@ span{
   color: #434a54
 }
 
+.img{
+  class:'img-circle';
+  style:"border: 3px solid #ececec"
+}
+img:hover{
+  class:"img-circle";
+  style:"border: 3px solid #ececec"
+}

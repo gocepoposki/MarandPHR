@@ -1,21 +1,24 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="col-md-3"  align="center">
-      <img src="https://dev.ehrscape.com/demo/img/female.png" alt="nemat slika" class="img-circle" style="border: 3px solid #ececec">
-    </div>
-    <div class="col-md-6">
-      <h4>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</h4>
-      <p >Age: <span>{{patientService.userModel.age | number:'.0-1'}}</span> </p>
-      <p >Gender: <span>{{patientService.userModel.gender | lowercase}}</span></p>
-      <p >DOB: <span>{{patientService.userModel.dateOfBirth | date:'MMM.dd,yyyy'}}</span></p>
-    </div>
-    <div class="mask">
+    <div class="row">
 
-    </div>
+      <div class="col-md-3" align="center">
+          <img (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" src="https://dev.ehrscape.com/demo/img/female.png" alt="nemat slika" [class]="class" style="border: 3px solid #ececec">
+      </div>
+      <div class="col-md-6">
+        <h4>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</h4>
+        <p>Age: <span>{{patientService.userModel.age | number:'.0-1'}}</span></p>
+        <p>Gender: <span>{{patientService.userModel.gender | lowercase}}</span></p>
+        <p>DOB: <span>{{patientService.userModel.dateOfBirth | date:'MMM.dd,yyyy'}}</span></p>
+      </div>
+      <div class="mask">
 
-    <div class="col-md-3"  align="center">
-      <p>Healthcare team:</p>
-      <img src="https://dev.ehrscape.com/demo/img/doctor2.png" alt="nemat slika" class="img-circle">
+      </div>
+
+      <div class="col-md-3" align="center">
+        <p>Healthcare team:</p>
+        <img src="https://dev.ehrscape.com/demo/img/doctor2.png" alt="nemat slika" class="img-circle">
+      </div>
     </div>
   </div>
 </div>

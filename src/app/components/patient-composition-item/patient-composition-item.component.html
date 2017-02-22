@@ -1,6 +1,4 @@
 <div *ngFor="let item of items, let i = index " class="goce">
-  <ul>
     <app-patient-presentation-item [item]="item"></app-patient-presentation-item>
     <app-patient-composition-item [items]="item.children"></app-patient-composition-item>
-  </ul>
 </div>

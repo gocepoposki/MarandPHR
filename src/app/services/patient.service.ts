@@ -168,7 +168,7 @@ export class PatientService {
     return this.http.get(this.baseUrl + url, {headers: this.getHeaders})
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
-  }z
+  }
 
   timeLine(url){
     var body = JSON.stringify({
