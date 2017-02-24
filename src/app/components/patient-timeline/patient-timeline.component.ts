@@ -11,7 +11,6 @@ import {UserModel} from "../../models/user-model";
 export class PatientTimelineComponent implements OnInit, AfterViewInit {
   userModel: UserModel = new UserModel();
 
-  hideContent: boolean = true;
 
   constructor(private patientService: PatientService) {
 
@@ -21,7 +20,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   close: boolean;
 
   // bloodPressureTime: any = [];
-
+  test:any
 
   ngOnInit() {
   }
@@ -29,6 +28,10 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
   }
 
+  hideContent(i){
+    this.test = i;
+      console.log(i)
+  }
   // Colors
   // BlodPressure
   public bloodPressureColors: Array<any> = [

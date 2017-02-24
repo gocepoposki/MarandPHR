@@ -1,0 +1,12 @@
+.form-header {
+  position: relative;
+  padding: 5px 0;
+  border-bottom: 1px solid #c9cdd7;
+  font-size: 1em;
+  color: #3498DB;
+  cursor: pointer;
+}
+
+span {
+  color: #999;
+}

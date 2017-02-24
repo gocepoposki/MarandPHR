@@ -32,12 +32,14 @@ span{
 
 .slika {
   position: relative;
+  left: 40px;
 }
 
 .center {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 80px;
   transform: translate(-50%, -50%);
   font-size: 18px;
+
 }

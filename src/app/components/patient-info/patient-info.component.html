@@ -3,7 +3,8 @@
     <div class="row">
 
       <div class="col-md-3" align="center">
-          <img (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" src="https://dev.ehrscape.com/demo/img/female.png" alt="nemat slika" [class]="class" style="border: 3px solid #ececec">
+        <img (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" src="https://dev.ehrscape.com/demo/img/female.png"
+             alt="nemat slika" [class]="class" style="border: 3px solid #ececec">
       </div>
       <div class="col-md-6">
         <h4>{{patientService.userModel.firstNames}}{{patientService.userModel.lastNames}}</h4>
@@ -11,9 +12,7 @@
         <p>Gender: <span>{{patientService.userModel.gender | lowercase}}</span></p>
         <p>DOB: <span>{{patientService.userModel.dateOfBirth | date:'MMM.dd,yyyy'}}</span></p>
       </div>
-      <div class="mask">
 
-      </div>
 
       <div class="col-md-3" align="center">
         <p>Healthcare team:</p>

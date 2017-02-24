@@ -1,3 +1,22 @@
+<div [ngSwitch]="item.displayValue">
+  <div *ngSwitchCase="" class="form-header">{{item.label}}</div>
+  <div *ngSwitchDefault>
+    <div [ngSwitch]="item.rmType">
+      <ul>
+        <div *ngSwitchCase="'DV_DATE_TIME'">
+          <span>{{item.label}}:</span>  {{item.displayValue | date: 'dd-MM-yyyy HH:mm'}}
+        </div>
+        <div *ngSwitchDefault>
+          <span>{{item.label}}:</span> {{item.displayValue}}
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
 <!--<div [ngSwitch]="item.rmType">-->
 <!--<ul>-->
 <!--<div *ngSwitchCase="'DV_DATE_TIME'">{{item.label}}: {{item.displayValue | date: 'dd-MM-yyyy HH:mm'}}</div>-->
@@ -13,16 +32,3 @@
 <!--</div>-->
 
 <!--{{item.rmType}}-->
-
-
-<div [ngSwitch]="item.displayValue">
-  <div *ngSwitchCase="">{{item.label}}</div>
-  <div *ngSwitchDefault>
-    <div [ngSwitch]="item.rmType">
-      <ul>
-        <div *ngSwitchCase="'DV_DATE_TIME'">{{item.label}}: {{item.displayValue | date: 'dd-MM-yyyy HH:mm'}}</div>
-        <div *ngSwitchDefault>{{item.label}}: {{item.displayValue}}</div>
-      </ul>
-    </div>
-  </div>
-</div>
