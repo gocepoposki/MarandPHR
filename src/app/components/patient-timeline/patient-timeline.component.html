@@ -1,6 +1,6 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary" #TimeLine>
   <div class="panel-heading">
-    <span style="float:right" class="glyphicon glyphicon-remove"></span>
+    <span class="glyphicon glyphicon-remove" (click)="hideContent(TimeLine)"></span>
     <h4 class="panel-title">Timeline</h4>
   </div>
   <div class="panel-body; scroll">
@@ -12,8 +12,9 @@
 
         <div *ngSwitchDefault>
           <div class="col-md-3" style="text-align: right">
-            {{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}<br>
-            {{item.metadata.startTime | date: "dd-MMM"}}
+            <span class="timelineDate" >{{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}</span>
+            <span class="timelineMM">{{item.metadata.startTime | date: "dd-MMM"}}</span>
+
           </div>
 
           <div class="col-md-1">
@@ -38,69 +39,15 @@
         </div>
       </div>
 
-
-      <!--TEST-->
-      <!--<div class="col-md-8">-->
-      <!--<button (click)="test('Demo1')" class="w3-btn-block w3-left-align">-->
-      <!--Open Section 1</button>-->
-      <!--<div id="Demo1" class="hide">-->
-      <!--<p>Some text..</p>-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--<div class="col-md-8">-->
-      <!--<div class="list-group">-->
-      <!--<input type="checkbox" checked>-->
-      <!--{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}-->
-
-      <!--&lt;!&ndash;1&ndash;&gt;-->
-      <!--<div id="i" class="hide">-->
-      <!--<div *ngFor="let item of item.composition.children, let i = index ">-->
-      <!--<ul>-->
-      <!--<li>{{item.label}}</li>-->
-      <!--&lt;!&ndash;2&ndash;&gt;-->
-      <!--<div *ngFor="let item of item.children">-->
-      <!--<ul>-->
-      <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
-      <!--&lt;!&ndash;3&ndash;&gt;-->
-      <!--<div *ngFor="let item of item.children">-->
-      <!--<ul>-->
-      <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
-      <!--&lt;!&ndash;4&ndash;&gt;-->
-      <!--<div *ngFor="let item of item.children">-->
-      <!--<ul>-->
-      <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
-      <!--&lt;!&ndash;5&ndash;&gt;-->
-      <!--<div *ngFor="let item of item.children">-->
-      <!--<ul>-->
-      <!--<li>{{item.label}}: {{item.displayValue}}</li>-->
-
-      <!--</ul>-->
-      <!--</div>-->
-      <!--</ul>-->
-      <!--</div>-->
-      <!--</ul>-->
-      <!--</div>-->
-      <!--</ul>-->
-      <!--</div>-->
-      <!--</ul>-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--<ul class="timeline"></ul>-->
-      <!--</div>-->
-      <!--</div>-->
-
-
     </div>
   </div>
 </div>
 
 
-<!--TABELA-->
-<div class="panel panel-info">
+<!--TableLaboratoryResults-->
+<div class="panel panel-info" #LaboratoryResults>
   <div class="panel-heading">
-    <span style="float:right" class="glyphicon glyphicon-remove"></span>
+    <span class="glyphicon glyphicon-remove" (click)="hideContent(LaboratoryResults)"></span>
     <h3 class="panel-title">Laboratory Results</h3>
   </div>
   <div class="panel-body">
@@ -139,10 +86,10 @@
 </div>
 
 <!--BlodPresure-->
-<div class="grafikon" class="col-md-6">
+<div class="col-md-6" #BlodPresure>
   <div class="panel panel-danger">
     <div class="panel-heading">
-      <span style="float:right" class="glyphicon glyphicon-remove"></span>
+      <span class="glyphicon glyphicon-remove" (click)="hideContent(BlodPresure)"></span>
       <h3 class="panel-title">Blod Presure</h3>
     </div>
     <div class="panel-body">
@@ -153,23 +100,25 @@
               [colors]="bloodPressureColors"
               [chartType]="'line'">
       </canvas>
-      <div *ngFor="let item of patientService.bloodPressure, let i = index " class="center">
+    </div>
+    <div class="panel-footer">
+      <div *ngFor="let item of patientService.bloodPressure, let i = index ">
         <p *ngIf="i < 1">
-          As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
+          As of: <span>{{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}</span><br>
         </p>
-        <h3 *ngIf="i < 1" class="blodpresure">
+        <div *ngIf="i < 1" class="blodpresure">
           {{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}
-        </h3>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!--BodyTemperature-->
-<div class="grafikon" class="col-md-6">
+<div class="col-md-6" #BodyTemperature>
   <div class="panel panel-warning">
     <div class="panel-heading">
-      <span style="float:right" class="glyphicon glyphicon-remove"></span>
+      <span class="glyphicon glyphicon-remove" (click)="hideContent(BodyTemperature)"></span>
       <h3 class="panel-title">Body Temperature</h3>
     </div>
     <div class="panel-body">
@@ -180,13 +129,15 @@
               [colors]="bodyTemperatureColors"
               [chartType]="'bar'">
       </canvas>
-      <div *ngFor="let item of patientService.bodyTemperature, let i = index " class="center">
+    </div>
+    <div class="panel-footer">
+      <div *ngFor="let item of patientService.bodyTemperature, let i = index ">
         <p *ngIf="i < 1">
-          As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
+          As of: <span>{{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}</span><br>
         </p>
-        <h3 *ngIf="i < 1" class="bodytemperature">
+        <div *ngIf="i < 1" class="bodytemperature">
           {{item.temperature}} {{item.unit}}
-        </h3>
+        </div>
       </div>
     </div>
   </div>
@@ -194,10 +145,10 @@
 
 
 <!--Height-->
-<div class="grafikon" class="col-md-6">
+<div class="col-md-6" #Height>
   <div class="panel panel-info">
     <div class="panel-heading">
-      <span style="float:right" class="glyphicon glyphicon-remove"></span>
+      <span class="glyphicon glyphicon-remove" (click)="hideContent(Height)"></span>
       <h3 class="panel-title">Height</h3>
     </div>
     <div class="panel-body">
@@ -208,23 +159,25 @@
               [colors]="heightColors"
               [chartType]="'bar'">
       </canvas>
-      <div *ngFor="let item of patientService.height, let i = index " class="center">
+    </div>
+    <div class="panel-footer">
+      <div *ngFor="let item of patientService.height, let i = index ">
         <p *ngIf="i < 1">
-          As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
+          As of: <span>{{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}</span><br>
         </p>
-        <h3 *ngIf="i < 1" class="height">
+        <div *ngIf="i < 1" class="height">
           {{item.height}} {{item.unit}}
-        </h3>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!--Pulse-->
-<div class="grafikon" class="col-md-6" *ngIf="'Pulse' != test">
+<div class="col-md-6" #Pulse>
   <div class="panel panel-success">
     <div class="panel-heading">
-      <span style="float:right" class="glyphicon glyphicon-remove" (click)="hideContent('Pulse')"></span>
+      <span class="glyphicon glyphicon-remove" (click)="hideContent(Pulse)"></span>
       <h3 class="panel-title">Pulse</h3>
     </div>
     <div class="panel-body">
@@ -235,23 +188,25 @@
               [colors]="pulseColors"
               [chartType]="'line'">
       </canvas>
-      <div *ngFor="let item of patientService.pulse, let i = index " class="center">
+    </div>
+    <div class="panel-footer">
+      <div *ngFor="let item of patientService.pulse, let i = index ">
         <p *ngIf="i < 1">
-          As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
+          As of: <span>{{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}</span><br>
         </p>
-        <h3 *ngIf="i < 1" class="pulse">
+        <div *ngIf="i < 1" class="pulse">
           {{item.pulse}} {{item.unit}}
-        </h3>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!--Weight-->
-<div class="grafikon" class="col-md-6" *ngIf="'Weight' != test" >
+<div class="col-md-6" #Weight>
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <span style="float:right" class="glyphicon glyphicon-remove"  (click)="hideContent('Weight')"></span>
+      <span class="glyphicon glyphicon-remove" (click)="hideContent(Weight)"></span>
       <h3 class="panel-title">Weight</h3>
     </div>
     <div class="panel-body">
@@ -262,13 +217,15 @@
               [colors]="weightColors"
               [chartType]="'line'">
       </canvas>
+    </div>
+    <div class="panel-footer">
       <div *ngFor="let item of patientService.weight, let i = index " class="center">
         <p *ngIf="i < 1">
-          As of: {{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}<br>
+          As of: <span>{{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}</span><br>
         </p>
-        <h3 *ngIf="i < 1" class="weight">
+        <div *ngIf="i < 1" class="weight">
           {{item.weight}} {{item.unit}}
-        </h3>
+        </div>
       </div>
     </div>
   </div>

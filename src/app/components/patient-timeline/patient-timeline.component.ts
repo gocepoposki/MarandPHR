@@ -15,24 +15,28 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   constructor(private patientService: PatientService) {
 
   }
-
-  open: number;
-  close: boolean;
-
-  // bloodPressureTime: any = [];
-  test:any
-
-  ngOnInit() {
+ ngOnInit() {
   }
 
   ngAfterViewInit() {
   }
 
-  hideContent(i){
-    this.test = i;
-      console.log(i)
+  hideContent(id){
+    console.log(id);
+    id.hidden = true;
+    // document.getElementById(id).hidden = true;
+
+    // console.log(id.srcElement.attributes.id);
+
+    // var x = document.getElementById(id);
+    // if (x.style.display === 'none') {
+    //   x.style.display = 'block';
+    // } else {
+    //   x.style.display = 'none';
+    // }
   }
-  // Colors
+
+  // Colors*********************************************
   // BlodPressure
   public bloodPressureColors: Array<any> = [
     {
@@ -77,8 +81,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     }
   ];
 
-
-  // Options
+  // Options***************************
   // BlodPressure
   public bloodPressureOptions: any = {
     scaleShowVerticalLines: false,
@@ -86,7 +89,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     bezierCurve: false,
     backgroundColor: "rgba(255,153,0,1)",
     title: {
-      display: true,
+      display: false,
       text: 'Blod Pressure'
     },
     data: {
@@ -111,7 +114,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     responsive: true,
     backgroundColor: "rgba(255,153,0,1)",
     title: {
-      display: true,
+      display: false,
       text: 'Body Temperature'
     },
     legend: {
@@ -131,7 +134,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     responsive: true,
     backgroundColor: "rgba(255,153,0,1)",
     title: {
-      display: true,
+      display: false,
       text: 'Height'
     },
     legend: {
@@ -154,7 +157,7 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     }],
     backgroundColor: "rgba(255,153,0,1)",
     title: {
-      display: true,
+      display: false,
       text: 'Pulse'
     },
     legend: {
@@ -174,12 +177,13 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
     responsive: true,
     backgroundColor: "rgba(255,153,0,1)",
     title: {
-      display: true,
+      display: false,
       text: 'Weight'
     },
     legend: {
       display: false,
     },
+    // da pocnuva od 0
     scales: {
       yAxes: [{
         ticks: {

@@ -1,23 +1,110 @@
+.timelineDate{
+  font-size: 0.8em;
+  color: #BDC3C7;
+  display: block;
+}
+.timelineMM{
+  font-size: 1.2em;
+  color: #2980B9;
+  font-weight: 300;
+
+}
+
+/*ikona za isklucuvajne X*/
+.glyphicon{
+  cursor: pointer;
+  float:right;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*grafikoni*/
+.panel{
+  border: none;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.panel-title{
+  font-size: 22px;
+  font-weight: 300;
+}
+
+
+.panel-heading {
+  padding: 15px 15px;
+  border-bottom: 1px solid transparent;
+}
+.panel-danger > .panel-heading {
+  color: white;
+  background-color: #da4453;
+  border-color: #da4453;
+}
+.panel-success > .panel-heading {
+  color: white;
+  background-color: #8cc152;
+  border-color: #8cc152;
+}
+.panel-primary > .panel-heading {
+  color: white;
+  background-color: #3bafda;
+  border-color: #3bafda;
+}
+.panel-info > .panel-heading {
+  color: white;
+  background-color: #37bc9b;
+  border-color: #37bc9b;
+}
+.panel-warning > .panel-heading {
+  color: white;
+  background-color: #f6bb42;
+  border-color: #f6bb42;
+}
+/*podatocite pod grafikonot*/
+.panel-footer {
+  color: white;
+  text-align: center;
+  background-color: white;
+}
+
 .chart {
   display: block;
 }
-.center{
-  text-align: center;
+
+p{
+  color: #999;
+  font-size: 13px;
 }
+span{
+  color: #434a54;
+  font-size: 13px;
+}
+
+
 .blodpresure{
   color: #DA4453;
+  font-size: 22px;
+
 }
 .bodytemperature{
   color: #F6BB42;
+  font-size: 22px;
+
 }
 .height{
   color: #37BC9B;
+  font-size: 22px;
+
 }
 .pulse{
   color: #8CC152;
+  font-size: 22px;
+
 }
 .weight{
   color: #3BAFDA;
+  font-size: 22px;
 }
 .scroll {
   height: 370px;
@@ -55,6 +142,7 @@
   left: -6%;
 }
 
+
 .timeline > li .timeline-date {
   display: block;
   width: 30%;
@@ -62,32 +150,8 @@
   position: absolute;
 }
 
-/* Style the buttons that are used to open and close the accordion panel */
-button.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-}
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-button.accordion.active, button.accordion:hover {
-  background-color: #ddd;
-}
-
-/* Style the accordion panel. Note: hidden by default */
-div.test {
-  padding: 0 18px;
-  background-color: white;
-  display: none;
-}
-
-
+/*Timeline otvoranjeto*/
 summary {cursor: pointer; padding: 15px 0; width: 100%; background-color: #dcdfe3; border-radius: 2px}
 summary:hover, details[open] summary {background: #3498DB; color: #fff;}
 summary::-webkit-details-marker {display: none;} /*ova e za da nema strelka*/
