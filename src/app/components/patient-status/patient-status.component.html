@@ -1,18 +1,18 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="col-md-8">
+    <div class="col-md-8 bordered-right">
 
       <div class="row" align="center">
-        <div class="col-md-4">
+        <div class="col-md-4 bordered-right centered">
           <p>Age</p>
           <span class="patient-info">{{patientService.userModel.age | number:'.0-0'}}</span>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 bordered-right centered">
           <p>Weight</p>
           <div *ngFor="let item of patientService.weight, let i = index ">
-            <p *ngIf="i < 1">
+            <div *ngIf="i < 1">
               <span class="patient-info">{{item.weight}}{{item.unit}}</span>
-            </p>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -23,16 +23,13 @@
               {{item.value.units}}
             </span>
             <span class="bmi-details">{{item.value.value}}</span>
-            <h6>
-
-            </h6>
           </div>
         </div>
       </div>
 
-      <div class="row" align="center">
+      <div class="row bordered" align="center">
         <div class="col-md-4">
-          <div *ngFor="let item of patientService.bloodPressure, let i = index ">
+          <div *ngFor="let item of patientService.bloodPressure, let i = index " class="margins">
             <p *ngIf="i < 1">
               Blood Pressure: <span>{{item.systolic + "/"}}{{item.diastolic}}{{item.unit}}</span>
             </p>
@@ -60,9 +57,9 @@
         </div>
       </div>
 
-      <div class="row" align="center">
+      <div class="row bordered" align="center">
         <div class="col-md-4">
-          <div *ngFor="let item of patientService.spO2, let i = index ">
+          <div *ngFor="let item of patientService.spO2, let i = index " class="margins">
             <p *ngIf="i < 1">
               Oxygen Saturation: <span>{{item.spO2 | number:'.2'}}%</span>
             </p>

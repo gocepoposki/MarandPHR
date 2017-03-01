@@ -1,8 +1,11 @@
 h4{
-  color: #37BC9B
+  color: #37BC9B;
+  text-align: left;
 }
 p{
   color: #999;
+  text-align: left;
+
 }
 span{
   font-weight: bold;
