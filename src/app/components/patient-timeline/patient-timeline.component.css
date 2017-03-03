@@ -139,16 +139,16 @@ span{
   bottom: 0;
   width: 10px;
   background: #dcdfe3;
-  left: -6%;
+  left: -6.5%;
 }
 
 
-.timeline > li .timeline-date {
-  display: block;
-  width: 30%;
-  padding-right: 100px;
-  position: absolute;
-}
+/*.timeline > li .timeline-date {*/
+  /*display: block;*/
+  /*width: 30%;*/
+  /*padding-right: 100px;*/
+  /*position: absolute;*/
+/*}*/
 
 
 /*Timeline otvoranjeto*/

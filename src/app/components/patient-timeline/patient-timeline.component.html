@@ -17,10 +17,11 @@
 
           </div>
 
-          <div class="col-md-1">
-            <div class="timeline-icon fa-stethoscope"></div>
-            <!--<div class="timeline-icon fa-plus-square"></div>-->
-            <!--<div class="timeline-icon fa-medkit"></div>-->
+          <div [ngSwitch]="item.metadata.templateId" class="col-md-1" >
+              <!--<div *ngSwitchCase="'Medical Diagnosis'" class="timeline-icon fa-stethoscope"></div>-->
+              <div *ngSwitchCase="'Medications'" class="timeline-icon fa-medkit"></div>
+              <div *ngSwitchCase="'Vital Signs'" class="timeline-icon fa-plus-square"></div>
+              <div *ngSwitchDefault class="timeline-icon fa-stethoscope"></div>
           </div>
 
           <div class="col-md-8">
