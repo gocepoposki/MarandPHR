@@ -13,6 +13,9 @@ import {PatientService} from "./services/patient.service";
 import {ChartsModule} from "ng2-charts";
 import { PatientCompositionItemComponent } from './components/patient-composition-item/patient-composition-item.component';
 import { PatientPresentationItemComponent } from './components/patient-presentation-item/patient-presentation-item.component';
+import {Draggable} from "ng2draggable/draggable.directive";
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { PatientPresentationItemComponent } from './components/patient-presentat
     PatientHistoryComponent,
     PatientCompositionItemComponent,
     PatientPresentationItemComponent,
+    Draggable
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div class="panel panel-primary" #TimeLine>
+<div  [ng2-draggable]="true" class="panel panel-primary" #TimeLine (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(TimeLine)" >
   <div class="panel-heading">
     <span class="glyphicon glyphicon-remove" (click)="hideContent(TimeLine)"></span>
     <h4 class="panel-title">Timeline</h4>
@@ -46,7 +46,7 @@
 
 
 <!--TableLaboratoryResults-->
-<div class="panel panel-info" #LaboratoryResults>
+<div [ng2-draggable]="true" class="panel panel-info" #LaboratoryResults (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(LaboratoryResults)">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-remove" (click)="hideContent(LaboratoryResults)"></span>
     <h3 class="panel-title">Laboratory Results</h3>
@@ -87,7 +87,7 @@
 </div>
 
 <!--BlodPresure-->
-<div class="col-md-6" #BlodPresure>
+<div [ng2-draggable]="true" class="col-md-6" #BlodPresure (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(BlodPresure)">
   <div class="panel panel-danger">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(BlodPresure)"></span>
@@ -116,7 +116,7 @@
 </div>
 
 <!--BodyTemperature-->
-<div class="col-md-6" #BodyTemperature>
+<div [ng2-draggable]="true" class="col-md-6" #BodyTemperature (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(BodyTemperature)">
   <div class="panel panel-warning">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(BodyTemperature)"></span>
@@ -131,7 +131,7 @@
               [chartType]="'bar'">
       </canvas>
     </div>
-    <div class="panel-footer">
+    <div [ng2-draggable]="true" class="panel-footer">
       <div *ngFor="let item of patientService.bodyTemperature, let i = index ">
         <p *ngIf="i < 1">
           As of: <span>{{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}</span><br>
@@ -146,7 +146,7 @@
 
 
 <!--Height-->
-<div class="col-md-6" #Height>
+<div [ng2-draggable]="true" class="col-md-6" #Height (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(Height)">
   <div class="panel panel-info">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(Height)"></span>
@@ -175,7 +175,7 @@
 </div>
 
 <!--Pulse-->
-<div class="col-md-6" #Pulse>
+<div [ng2-draggable]="true" class="col-md-6" #Pulse (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(Pulse)">
   <div class="panel panel-success">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(Pulse)"></span>
@@ -204,7 +204,7 @@
 </div>
 
 <!--Weight-->
-<div class="col-md-6" #Weight>
+<div [ng2-draggable]="true" class="col-md-6" #Weight (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(Weight)">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(Weight)"></span>

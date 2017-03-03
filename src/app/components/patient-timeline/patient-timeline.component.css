@@ -156,3 +156,16 @@ summary {cursor: pointer; padding: 15px 0; width: 100%; background-color: #dcdfe
 summary:hover, details[open] summary {background: #3498DB; color: #fff;}
 summary::-webkit-details-marker {display: none;} /*ova e za da nema strelka*/
 details[open] {box-shadow: 0 1px 1px rgba(0, 0, 0, .4)}
+
+/* Applies a grabbing hand on top of the div that's draggable*/
+.cursor-draggable {
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+/*  Apply a "closed-hand" cursor during drag operation. */
+.cursor-draggable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}

@@ -15,26 +15,43 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   constructor(private patientService: PatientService) {
 
   }
- ngOnInit() {
+
+  ngOnInit() {
   }
 
   ngAfterViewInit() {
   }
 
-  hideContent(id){
+  test(id) {
+    id.style.zIndex = 1;
+  }
+
+  se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight) {
+    TimeLine.style.zIndex = 0;
+    LaboratoryResults.style.zIndex = 0;
+    BlodPresure.style.zIndex = 0;
+    BodyTemperature.style.zIndex = 0;
+    Height.style.zIndex = 0;
+    Pulse.style.zIndex = 0;
+    Weight.style.zIndex = 0;
+
+  }
+
+  hideContent(id) {
     console.log(id);
     id.hidden = true;
-    // document.getElementById(id).hidden = true;
-
-    // console.log(id.srcElement.attributes.id);
-
-    // var x = document.getElementById(id);
-    // if (x.style.display === 'none') {
-    //   x.style.display = 'block';
-    // } else {
-    //   x.style.display = 'none';
-    // }
   }
+
+  // document.getElementById(id).hidden = true;
+
+  // console.log(id.srcElement.attributes.id);
+
+  // var x = document.getElementById(id);
+  // if (x.style.display === 'none') {
+  //   x.style.display = 'block';
+  // } else {
+  //   x.style.display = 'none';
+  // }
 
   // Colors*********************************************
   // BlodPressure
@@ -192,7 +209,6 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
       }]
     }
   };
-
 
 
 }
