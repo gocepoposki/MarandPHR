@@ -1,4 +1,4 @@
-<div  [ng2-draggable]="true" class="panel panel-primary" #TimeLine (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(TimeLine)" >
+<div  [ng2-draggable]="true" class="panel panel-primary" #TimeLine (mousedown)="onTop(TimeLine)" >
   <div class="panel-heading">
     <span class="glyphicon glyphicon-remove" (click)="hideContent(TimeLine)"></span>
     <h4 class="panel-title">Timeline</h4>
@@ -11,7 +11,7 @@
         <div *ngSwitchCase="'Allergies'"></div>
 
         <div *ngSwitchDefault>
-          <div class="col-md-3" style="text-align: right">
+          <div class="col-md-3; tekst" style="text-align: right">
             <span class="timelineDate" >{{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}</span>
             <span class="timelineMM">{{item.metadata.startTime | date: "dd-MMM"}}</span>
 
@@ -46,7 +46,7 @@
 
 
 <!--TableLaboratoryResults-->
-<div [ng2-draggable]="true" class="panel panel-info" #LaboratoryResults (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(LaboratoryResults)">
+<div [ng2-draggable]="true" class="panel panel-info" #LaboratoryResults (mousedown)="onTop(LaboratoryResults)">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-remove" (click)="hideContent(LaboratoryResults)"></span>
     <h3 class="panel-title">Laboratory Results</h3>
@@ -87,7 +87,7 @@
 </div>
 
 <!--BlodPresure-->
-<div [ng2-draggable]="true" class="col-md-6" #BlodPresure (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(BlodPresure)">
+<div [ng2-draggable]="true" class="col-md-6" #BlodPresure (mousedown)="onTop(BlodPresure)">
   <div class="panel panel-danger">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(BlodPresure)"></span>
@@ -116,7 +116,7 @@
 </div>
 
 <!--BodyTemperature-->
-<div [ng2-draggable]="true" class="col-md-6" #BodyTemperature (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(BodyTemperature)">
+<div [ng2-draggable]="true" class="col-md-6" #BodyTemperature (mousedown)="onTop(BodyTemperature)">
   <div class="panel panel-warning">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(BodyTemperature)"></span>
@@ -131,7 +131,7 @@
               [chartType]="'bar'">
       </canvas>
     </div>
-    <div [ng2-draggable]="true" class="panel-footer">
+    <div class="panel-footer">
       <div *ngFor="let item of patientService.bodyTemperature, let i = index ">
         <p *ngIf="i < 1">
           As of: <span>{{item.time | date:"dd-MMM-yyyy' at 'HH:mm"}}</span><br>
@@ -146,7 +146,7 @@
 
 
 <!--Height-->
-<div [ng2-draggable]="true" class="col-md-6" #Height (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(Height)">
+<div [ng2-draggable]="true" class="col-md-6" #Height (mousedown)="onTop(Height)">
   <div class="panel panel-info">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(Height)"></span>
@@ -175,7 +175,7 @@
 </div>
 
 <!--Pulse-->
-<div [ng2-draggable]="true" class="col-md-6" #Pulse (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(Pulse)">
+<div [ng2-draggable]="true" class="col-md-6" #Pulse (mousedown)="onTop(Pulse)">
   <div class="panel panel-success">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(Pulse)"></span>
@@ -204,7 +204,7 @@
 </div>
 
 <!--Weight-->
-<div [ng2-draggable]="true" class="col-md-6" #Weight (mousedown)="se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight)" (mousedown)="test(Weight)">
+<div [ng2-draggable]="true" class="col-md-6" #Weight (mousedown)="onTop(Weight)">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <span class="glyphicon glyphicon-remove" (click)="hideContent(Weight)"></span>

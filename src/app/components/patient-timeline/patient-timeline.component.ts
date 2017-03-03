@@ -21,20 +21,14 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
   }
+  promenliva: any;
 
-  test(id) {
-    id.style.zIndex = 1;
-  }
-
-  se(TimeLine, LaboratoryResults, BlodPresure, BodyTemperature, Height, Pulse, Weight) {
-    TimeLine.style.zIndex = 0;
-    LaboratoryResults.style.zIndex = 0;
-    BlodPresure.style.zIndex = 0;
-    BodyTemperature.style.zIndex = 0;
-    Height.style.zIndex = 0;
-    Pulse.style.zIndex = 0;
-    Weight.style.zIndex = 0;
-
+  onTop(id) {
+    if (this.promenliva){
+      this.promenliva.style.zIndex = 0;
+    }
+      this.promenliva = id;
+      id.style.zIndex = 1;
   }
 
   hideContent(id) {

@@ -1,10 +1,14 @@
 h4{
   color: #37BC9B;
   text-align: left;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 20px;
 }
 p{
   color: #999;
   text-align: left;
+  font-size: 14px;
 
 }
 span{
@@ -38,4 +42,16 @@ span{
   background-color: #FFCCCC;
   width: 100px;
   height: 100px;
+}
+
+@media only screen and (max-width: 991px) {
+  .center{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+  h4{
+    text-align: center;
+  }
 }
