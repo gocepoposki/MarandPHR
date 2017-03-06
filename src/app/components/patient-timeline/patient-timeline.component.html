@@ -1,4 +1,4 @@
-<div  [ng2-draggable]="true" class="panel panel-primary" #TimeLine (mousedown)="onTop(TimeLine)" >
+<div [ng2-draggable]="true" class="panel panel-primary" #TimeLine (mousedown)="onTop(TimeLine)">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-remove" (click)="hideContent(TimeLine)"></span>
     <h4 class="panel-title">Timeline</h4>
@@ -11,25 +11,33 @@
         <div *ngSwitchCase="'Allergies'"></div>
 
         <div *ngSwitchDefault>
-          <div class="col-md-3; tekst" style="text-align: right">
-            <span class="timelineDate" >{{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}</span>
-            <span class="timelineMM">{{item.metadata.startTime | date: "dd-MMM"}}</span>
+
+          <div class="col-md-3">
+            <div class="datum">
+              <span class="timelineDate">{{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}</span>
+              <span class="timelineMM">{{item.metadata.startTime | date: "dd-MMM"}}</span>
+            </div>
+
 
           </div>
 
-          <div [ngSwitch]="item.metadata.templateId" class="col-md-1" >
+          <div class="col-md-1">
+            <div [ngSwitch]="item.metadata.templateId" class="slika">
               <!--<div *ngSwitchCase="'Medical Diagnosis'" class="timeline-icon fa-stethoscope"></div>-->
               <div *ngSwitchCase="'Medications'" class="timeline-icon fa-medkit"></div>
               <div *ngSwitchCase="'Vital Signs'" class="timeline-icon fa-plus-square"></div>
               <div *ngSwitchDefault class="timeline-icon fa-stethoscope"></div>
+            </div>
           </div>
 
+
           <div class="col-md-8">
-            <div class="list-group">
+            <div class="list-group" style="  background-color: #f5f5f5;">
 
               <details>
                 <summary>
-                  <div>{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}</div>
+                  <div style="margin-left: 10px">{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
+                  </div>
                 </summary>
                 <app-patient-composition-item [items]="item.composition.children"></app-patient-composition-item>
 
@@ -70,10 +78,18 @@
           {{item.loinc}}
         </td>
         <td>
-          {{item.normal_min}} {{item.normal_max}}
+          <div [ngSwitch]="item.normal_min">
+            <div *ngSwitchCase="0"> < {{item.normal_max}}</div>
+            <div *ngSwitchCase="">{{item.normal_max}}</div>
+            <div *ngSwitchDefault="">{{item.normal_min}} - {{item.normal_max}}</div>
+          </div>
         </td>
         <td>
-          {{item.value}}
+          <div *ngIf="item.value < item.normal_max && item.value > item.normal_min" style="color: #8CC152">{{item.value}}</div>
+          <div *ngIf="item.value > item.normal_max" style="color: #DA4453">
+            {{item.value}}
+            <i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+          </div>
         </td>
         <td>
           {{item.unit}}

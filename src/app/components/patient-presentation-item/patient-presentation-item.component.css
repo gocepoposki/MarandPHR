@@ -5,8 +5,20 @@
   font-size: 1em;
   color: #3498DB;
   cursor: pointer;
+  margin-left: 10px;
 }
 
+ul{
+  margin: 10px;
+}
 span {
   color: #999;
 }
+
+/*.fa-angle-down:before {*/
+  /*content: "\f107";*/
+/*}*/
+/*.fa-angle-right:before {*/
+  /*content: "\f105";*/
+/*}*/
+/*<i class="fa fa-angle-right fa-rotate-45" style="color: rgb(52, 152, 219);"></i>*/
