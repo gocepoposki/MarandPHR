@@ -159,27 +159,56 @@ span {
 }
 
 /*Timeline otvoranjeto*/
-summary {
+summary{
   cursor: pointer;
   padding: 15px 0;
   width: 100%;
   background-color: #dcdfe3;
   border-radius: 2px;
+  outline:none
 }
 
-summary:hover, details[open] summary {
+summary:hover, details[open] summary{
   background: #3498DB;
   color: #fff;
 }
 
+/*summary:hover ~ .box {*/
+  /*color: #3498DB;*/
+/*}*/
+.left{
+  display: block;
+  color: #dcdfe3;
+  float: left;
+  margin-top: -5px;
+  margin-left: -8px;
+}
+
+.up{
+  display: none;
+}
+
+.boxx:hover .left {
+  color: #3498DB
+}
+details[open] .left{
+  color: #3498DB
+}
+.boxx:hover .up {
+  color: #3498DB
+}
+details[open] .up{
+  color: #3498DB
+}
+
+/*ova e za da nema strelka*/
 summary::-webkit-details-marker {
   display: none;
 }
 
-/*ova e za da nema strelka*/
-details[open] {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .4)
-}
+/*details[open] {*/
+  /*box-shadow: 0 1px 1px rgba(0, 0, 0, .4)*/
+/*}*/
 
 /* Applies a grabbing hand on top of the div that's draggable*/
 .cursor-draggable {
@@ -216,5 +245,18 @@ details[open] {
   .timeline:before {
     position: relative;
   }
+
+  .up{
+    display: block;
+    color: #dcdfe3;
+    float: left;
+    margin-top: -32px;
+    margin-left: 15px;
+  }
+
+  .left{
+    display: none
+  }
+
 }
 
