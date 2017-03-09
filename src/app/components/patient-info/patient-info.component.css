@@ -1,31 +1,24 @@
-h4{
+h4 {
   color: #37BC9B;
   text-align: left;
   font-family: 'Open Sans';
   font-weight: 300;
   font-size: 20px;
 }
-p{
+
+p {
   color: #999;
   text-align: left;
   font-size: 14px;
+  margin: 5px;
 
 }
-span{
+
+span {
   font-weight: bold;
-  color: #434a54
+  color: #434a54;
+
 }
-
-
-.mask {
-  width: 1px;
-  height: 175px;
-  content:'';
-  display:block;
-  border-radius:12px / 125px;
-  box-shadow:0 0 8px #656D78;
-}
-
 
 .box {
   border-style: solid;
@@ -44,17 +37,55 @@ span{
   height: 100px;
 }
 
+.ver-spacer {
+  position: absolute;
+  top: 5px;
+  left: -10px;
+}
+.ver-spacer .mask {
+  overflow: hidden;
+  width: 20px;
+  height: 175px;
+}
+.left .mask:after {
+  content: '';
+  display: block;
+  margin-left: -20px;
+  width: 20px;
+  height: 100%;
+  border-radius: 12px / 125px;
+  box-shadow: 0 0 8px #656D78;
+}
+
+.doc-pic {
+  background: url(https://dev.ehrscape.com/demo/img/doctor2.png) 52% 45% no-repeat;
+  border: 3px solid #ECF0F1;
+  /*display: block;*/
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+}
+
 @media only screen and (max-width: 991px) {
-  .center{
+  .center {
     text-align: center;
   }
-  p{
+
+  p {
     text-align: center;
   }
-  h4{
+
+  h4 {
     text-align: center;
   }
-  .border{
+
+  .border {
     border-top: 1px solid #eee;
   }
+
+  .mask{
+    display: none;
+
+  }
+
 }

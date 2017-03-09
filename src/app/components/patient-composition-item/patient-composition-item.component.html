@@ -1,6 +1,7 @@
-<div *ngFor="let item of items, let i = index " class="siv">
+<div *ngFor="let item of items, let i = index ">
   <details open>
     <summary>
+      <div class="test"></div>
     <app-patient-presentation-item [item]="item"></app-patient-presentation-item>
     </summary>
     <app-patient-composition-item [items]="item.children"></app-patient-composition-item>

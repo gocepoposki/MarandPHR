@@ -2,5 +2,14 @@
   /*background-color: #f5f5f5;*/
   /*!*box-shadow: 0 1px rgba(0, 0, 0, .4)*!*/
 /*}*/
-summary::-webkit-details-marker {display: none;} /*ova e za da nema strelka*/
+summary::-webkit-details-marker {
+  display: none; /*ova e za da nema strelka*/
+}
+summary{
+  outline:none;  /*da nema blue border na klik*/
 
+}
+
+details[open] .test{
+  color: #db090f
+}

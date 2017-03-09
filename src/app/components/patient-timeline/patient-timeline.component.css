@@ -165,7 +165,8 @@ summary{
   width: 100%;
   background-color: #dcdfe3;
   border-radius: 2px;
-  outline:none
+  outline:none;  /*da nema blue border na klik*/
+
 }
 
 summary:hover, details[open] summary{
@@ -173,9 +174,7 @@ summary:hover, details[open] summary{
   color: #fff;
 }
 
-/*summary:hover ~ .box {*/
-  /*color: #3498DB;*/
-/*}*/
+
 .left{
   display: block;
   color: #dcdfe3;

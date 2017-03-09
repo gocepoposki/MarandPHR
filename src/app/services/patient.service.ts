@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Headers, Response, Http} from "@angular/http";
 import {Observable} from "rxjs";
-import * as moment from 'moment'
 import {UserModel} from "../models/user-model";
 
-
 @Injectable()
-export class PatientService {
+export class PatientService{
+
   userModel: UserModel = new UserModel();
 
   private baseUrl = "https://rest.ehrscape.com";
@@ -39,8 +38,7 @@ export class PatientService {
   presentation: any = [];
   bmi: any = [];
 
-
-  constructor(private http: Http,) {
+  constructor(private http: Http) {
     this.getData();
   }
 
@@ -51,7 +49,9 @@ export class PatientService {
         console.log(data.party, 'demographics');
         this.userModel.firstNames = this.patientDemographics.firstNames + " ";
         this.userModel.lastNames = this.patientDemographics.lastNames;
-        this.userModel.age = moment().diff(this.patientDemographics.dateOfBirth, 'year', true);
+        this.userModel.age = moment().diff(this.patientDemographics.dateOfBirth, 'year', false);
+        this.userModel.month = moment().diff(this.patientDemographics.dateOfBirth, 'month', false)%12;
+        this.userModel.fullAge = moment().preciseDiff(this.patientDemographics.dateOfBirth);
         this.userModel.gender = this.patientDemographics.gender;
         this.userModel.dateOfBirth = this.patientDemographics.dateOfBirth;
         // this.userModel.address = this.patientDemographics.address.address;
@@ -180,3 +180,4 @@ export class PatientService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
   }
 }
+declare let moment: any;
