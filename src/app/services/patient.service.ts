@@ -118,7 +118,7 @@ export class PatientService{
     this.fetch(`/rest/v1/view/${this.ehrId}/medication`).subscribe(
       data => {
         this.medication = data;
-        // console.log(this.medication, 'medication');
+        console.log(this.medication, 'medication');
       }
     );
     this.fetch(`/rest/v1/view/${this.ehrId}/problem`).subscribe(

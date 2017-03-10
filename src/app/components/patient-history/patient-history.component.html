@@ -18,7 +18,7 @@
   <div class="panel-body">
     <div *ngFor="let item of patientService.medication, let i = index ">
       <li>
-        {{item.medicine}}
+        {{item.medicine}} - {{item.quantity_amount}}{{item.quantity_unit}}
       </li>
     </div>
   </div>
@@ -39,3 +39,22 @@
 
 
 
+<details>
+  <summary>
+    <div>aaaaaa</div>
+    <div class="transition">
+      <p>bbbbbb</p>
+      <p>bbbbbb</p>
+      <p>bbbbbb</p>
+      <p>bbbbbb</p>
+      <p>bbbbbb</p>
+    </div>
+  </summary>
+  <div class="transition">
+    <p>bbbbbb</p>
+    <p>bbbbbb</p>
+    <p>bbbbbb</p>
+    <p>bbbbbb</p>
+    <p>bbbbbb</p>
+  </div>
+</details>

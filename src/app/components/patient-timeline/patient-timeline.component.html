@@ -17,8 +17,6 @@
               <span class="timelineDate">{{item.metadata.startTime | date: "dd-MM-yyyy HH:mm"}}</span>
               <span class="timelineMM">{{item.metadata.startTime | date: "dd-MMM"}}</span>
             </div>
-
-
           </div>
 
           <div class="col-md-1">
@@ -35,7 +33,7 @@
           <div class="col-md-8">
             <div class="boxx">
               <!--<div class="box">-->
-                <!--<i class="fa fa-caret-left fa-2x"></i>-->
+              <!--<i class="fa fa-caret-left fa-2x"></i>-->
               <!--</div>-->
 
               <div class="list-group" style="background-color: #f5f5f5; margin-left: 8px">
@@ -43,11 +41,12 @@
                   <summary>
                     <div class="left"><i class="fa fa-caret-left fa-2x"></i></div>
                     <div class="up"><i class="fa fa-caret-up fa-2x"></i></div>
-                    <div style="margin-left: 10px">{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}</div>
+                    <div style="margin-left: 10px">{{item.metadata.templateId}}{{' | ' + item.metadata.composer.name}}
+                    </div>
                   </summary>
-
-                  <app-patient-composition-item [items]="item.composition.children"></app-patient-composition-item>
-
+                  <div class="test">
+                    <app-patient-composition-item [items]="item.composition.children"></app-patient-composition-item>
+                  </div>
                 </details>
               </div>
             </div>

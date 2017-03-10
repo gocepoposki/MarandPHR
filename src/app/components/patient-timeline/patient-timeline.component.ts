@@ -33,7 +33,10 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
 
   hideContent(id) {
     console.log(id);
+    id.transition = 1;
+    id.opacity= 0;
     id.hidden = true;
+
   }
 
   // document.getElementById(id).hidden = true;

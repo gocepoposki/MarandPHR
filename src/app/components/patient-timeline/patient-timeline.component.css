@@ -166,7 +166,6 @@ summary{
   background-color: #dcdfe3;
   border-radius: 2px;
   outline:none;  /*da nema blue border na klik*/
-
 }
 
 summary:hover, details[open] summary{
@@ -174,7 +173,89 @@ summary:hover, details[open] summary{
   color: #fff;
 }
 
+/*@keyframes slideUP {*/
+  /*0% {*/
+    /*opacity: 0;*/
+    /*height: 0;*/
+  /*}*/
+  /*100% {*/
+    /*opacity: 1;*/
+    /*height: 100px;*/
+  /*}*/
+/*}*/
+/*details > div {*/
+  /*animation-name: slideUP;*/
+  /*animation-duration: 100ms;*/
+  /*animation-timing-function: cubic-bezier(0, 0, 1, 0);*/
+  /*overflow:hidden;*/
+/*}*/
 
+/*@keyframes slideDown {*/
+  /*0% {*/
+    /*opacity: 0;*/
+    /*height: 0;*/
+  /*}*/
+  /*100% {*/
+    /*opacity: 1;*/
+    /*height: 20px;*/
+  /*}*/
+/*}*/
+/*details[open] > div {*/
+  /*animation-name: slideDown;*/
+  /*animation-duration: 900ms;*/
+  /*animation-timing-function:cubic-bezier(0, 0, 1, 0);*/
+  /*overflow:hidden;*/
+  /*padding-left: 18px;*/
+/*}*/
+/*details .test {*/
+  /*margin: 0 0 0 0;*/
+  /*padding: 0 0 5px 0;*/
+/*}*/
+/*details ul {*/
+  /*margin : 0;*/
+  /*padding:0;*/
+/*}*/
+@keyframes growAndFadeInFontSize {
+  0% {
+    font-size: 0;
+    opacity: 0;
+  }
+  100% {
+    font-size: 1em;
+    opacity: 1;
+  }
+}
+
+details[open] > div{
+  animation-name: growAndFadeInFontSize;
+  animation-duration: 500ms;
+}
+@keyframes odnopaku {
+  100% {
+    font-size: 0;
+    opacity: 0;
+  }
+  0% {
+    font-size: 1em;
+    opacity: 1;
+  }
+}
+details > div{
+  animation-name: odnopaku;
+  animation-duration: 500ms;
+}
+
+
+
+
+details[open] .up{
+  animation-name: growAndFadeInFontSize;
+  animation-duration: 500ms;
+}
+details[open] .left{
+  animation-name: growAndFadeInFontSize;
+  animation-duration: 500ms;
+}
 .left{
   display: block;
   color: #dcdfe3;
