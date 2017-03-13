@@ -13,34 +13,3 @@ h3{
   background-color: #e6e9ed;
   border-color: #e6e9ed;
 }
-
-
-
-details{
-  /*position: relative;*/
-  /*width: 100px;height: 100px;*/
-  /*perspective: 1000px;*/
-}
-div{
-  /*position: absolute;*/
-  /*top: 20px;*/
-  /*width: 100px;height: 100px;*/
-  /*background: black;*/
-}
-details .transition{
-  transition: 1s linear;
-  transform-origin: center bottom;
-}
-
-summary .transition{
-  transition: 1s linear;
-  transform-origin: center bottom;
-}
-summary:hover, details[open] summary{
-  transform: rotateX(360deg);
-  background: orangered;
-}
-details[open] .transition{
-  transform: rotateX(360deg);
-  background: orangered;
-}

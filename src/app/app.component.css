@@ -4,3 +4,20 @@
 .with-dark-background {
   background-color: #F7F7F7;
 }
+
+#smoothscroll {
+  height: 44px;
+  width: 44px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-indent: -9999px;
+  background: url(https://dev.ehrscape.com/demo/img/back-to-top.png);
+}
+
+#smoothscroll:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+}

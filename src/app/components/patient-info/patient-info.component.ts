@@ -17,13 +17,13 @@ export class PatientInfoComponent implements OnInit {
 
   ngOnInit() {
   }
-  class:string = "img-circle";
-
-  onMouseOver(): void{
-    this.class = "img-rounded";
-    console.log(this.class)
-  }
-  onMouseOut(): void{
-    this.class = "img-circle"
-  }
+  // class:string = "img-circle";
+  //
+  // onMouseOver(): void{
+  //   this.class = "img-rounded";
+  //   console.log(this.class)
+  // }
+  // onMouseOut(): void{
+  //   this.class = "img-circle"
+  // }
 }

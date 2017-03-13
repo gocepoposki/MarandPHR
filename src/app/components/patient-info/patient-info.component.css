@@ -56,6 +56,17 @@ span {
   border-radius: 12px / 125px;
   box-shadow: 0 0 8px #656D78;
 }
+.patient-pic {
+  border: 3px solid #E6E9ED;
+  border-radius: 50%;
+  height: 125px;
+  width: 125px;
+  margin: 25px auto;
+  transition: all .3s ease-in-out;
+}
+.patient-pic:hover{
+  border-radius:0
+}
 
 .doc-pic {
   background: url(https://dev.ehrscape.com/demo/img/doctor2.png) 52% 45% no-repeat;

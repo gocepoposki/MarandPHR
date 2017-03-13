@@ -55,3 +55,9 @@ span{
   margin-left: -25px;
   margin-right: -25px;
 }
+
+@media only screen and (max-width: 991px) {
+  .bordered-right {
+    border-right: none;
+  }
+}

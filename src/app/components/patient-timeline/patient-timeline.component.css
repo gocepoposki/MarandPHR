@@ -172,7 +172,6 @@ summary:hover, details[open] summary{
   background: #3498DB;
   color: #fff;
 }
-
 /*@keyframes slideUP {*/
   /*0% {*/
     /*opacity: 0;*/
@@ -226,36 +225,19 @@ summary:hover, details[open] summary{
   }
 }
 
-details[open] > div{
+details[open] > div, details[open] .up, details[open] .left{
   animation-name: growAndFadeInFontSize;
   animation-duration: 500ms;
 }
-@keyframes odnopaku {
-  100% {
-    font-size: 0;
-    opacity: 0;
-  }
-  0% {
-    font-size: 1em;
-    opacity: 1;
-  }
-}
-details > div{
-  animation-name: odnopaku;
-  animation-duration: 500ms;
-}
 
-
-
-
-details[open] .up{
-  animation-name: growAndFadeInFontSize;
-  animation-duration: 500ms;
-}
-details[open] .left{
-  animation-name: growAndFadeInFontSize;
-  animation-duration: 500ms;
-}
+/*details[open] .up{*/
+  /*animation-name: growAndFadeInFontSize;*/
+  /*animation-duration: 500ms;*/
+/*}*/
+/*details[open] .left{*/
+  /*animation-name: growAndFadeInFontSize;*/
+  /*animation-duration: 500ms;*/
+/*}*/
 .left{
   display: block;
   color: #dcdfe3;

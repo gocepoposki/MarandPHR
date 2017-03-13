@@ -1,6 +1,7 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {PatientService} from "../../services/patient.service";
 import {UserModel} from "../../models/user-model";
+import {setTimeout} from "timers";
 
 @Component({
   selector: 'app-patient-timeline',
@@ -32,11 +33,10 @@ export class PatientTimelineComponent implements OnInit, AfterViewInit {
   }
 
   hideContent(id) {
-    console.log(id);
-    id.transition = 1;
-    id.opacity= 0;
-    id.hidden = true;
-
+    // console.log(id);
+    id.style.transition = 500+'ms';
+    id.style.opacity= 0;
+    setTimeout(function(){id.hidden = true}, 500);
   }
 
   // document.getElementById(id).hidden = true;
